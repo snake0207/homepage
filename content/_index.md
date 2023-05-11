@@ -1,6 +1,6 @@
 ---
 banner:
-  title: What are customers to us?
+  title: What are we good at?
   content: 모바일 영역에서부터 Backend 시스템까지 고객의 다양한 IT환경에 최고의 품질을 제공합니다.
   image: /images/banner-art.png
   button:
@@ -10,17 +10,17 @@ banner:
 
 # feature
 feature:
-  title: Our Work is...
+  title: Our main business areas
   features:
     - name: "Realtime Marketing"
       icon: "/images/speedometer.svg"
       content: "통신사 CBS망을 이용한 실시간 위치기반 Push 마케팅 플랫폼 기술 및 특허"
     - name: "Mobile Service"
       icon: "/images/user-clock.svg"
-      content: "금융, 통신사 및 기타 분야의 모바일 서비스 구축 및 운영"
+      content: "금융, 통신사, 유통, 물류 및 기타 분야의 모바일 서비스 구축 및 운영"
     - name: "Backend System"
       icon: "/images/code.svg"
-      content: "인증, LBS 등 통신사 Backend System 구축 LBS Solution & Rental Solution"
+      content: "인증, LBS 등 통신사 Backend System 구축  Solution (LBS, Rental)"
 
 # services
 services:

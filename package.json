@@ -10,7 +10,7 @@
     "export": "next build && next export",
     "lint": "next lint",
     "predeploy": "npm run export",
-    "deploy": "fsutil file createnew out/.nojekyll && gh-pages -d out --dotfiles",
+    "deploy": "gh-pages -d out --dotfiles",
     "start": "next start -p 443"
   },
   "dependencies": {
