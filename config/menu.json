@@ -1,0 +1,52 @@
+{
+  "main": [
+    {
+      "name": "About",
+      "url": "#about"
+    },
+    {
+      "name": "Work",
+      "url": "#work"
+    },
+    {
+      "name": "Solution",
+      "url": "#solution"
+    },
+    {
+      "name": "Services",
+      "url": "#services"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Company",
+      "menu": [
+        {
+          "text": "Services",
+          "url": "services"
+        },
+        {
+          "text": "Quick Start",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "menu": [
+        {
+          "text": "Features",
+          "url": "#"
+        },
+        {
+          "text": "Platform",
+          "url": "#"
+        },
+        {
+          "text": "Services",
+          "url": "services"
+        }
+      ]
+    }
+  ]
+}
