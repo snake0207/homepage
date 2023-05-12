@@ -15,12 +15,6 @@
     "blog_folder": "blogs"
   },
 
-  "nav_button": {
-    "enable": false,
-    "label": "Get Started",
-    "link": "/contact"
-  },
-
   "params": {
     "contact_form_action": "",
     "tag_manager_id": "",
