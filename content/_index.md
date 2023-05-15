@@ -35,8 +35,8 @@ services:
       link: /contact
 
   - title: "Web Application"
-    content: "금융, 통신사 대고객서비스 채널 및 관리자 페이지 개발 & 운영 중.
-개발 & 운영에 필요한 다수의 상용 솔루션 제품 사용에 대한 기술경험(인증, OCR, 보안 등)을 보유하고 있습니다. 최근에는 Global Service Data Aggregater에 대한 서비스채널 및 Admin 페이지를 구축(HTML5, CSS3, bootstrap 5, TypeScript etc.)"
+    content: "금융, 통신사 대고객서비스 채널 개발 & 운영 중입니다.
+개발 & 운영에 필요한 다수의 상용 솔루션 제품 사용에 대한 기술경험(인증, OCR, 보안 등)을 보유하고 있으며, 최근에는 Global Service Data Aggregater에 대한 서비스채널 및 Admin 페이지를 AWS(Amazon eb Service) 환경의 MSA로 구현 하였습니다."
     images:
       - "/images/portfolio/pc_hd.png"
       - "/images/portfolio/pc_dgb.png"
@@ -47,8 +47,7 @@ services:
       link: /contact
 
   - title: "Mobile Application"
-    content: "Native 또는 모바일 웹 형태의 Application을 개발.
-차량 원격관리, 예비운전자의 운전연수 매칭 및 화물의 배차 관리 앱 등을 개발 하였으며, PUSH & 세금계산서 발행 & 사용자 계좌확인 등의 기능을 적용. 안드로이드 경우 Realtime Marketing Platform을 이용하는 마케팅 업체를 위하여 CBS SDK를 자체 개발하여 배포하고 관리."
+    content: "순수 OS 기반의 Native App, Hybrid 및 모바일 웹 기반의 Application을 구현 및 제공합니다. 1) 앱을 이용한 차량 상태 확인 및 원격관리. 2) 예비운전자를 위한 운전연수 학원 매칭. 3) 화물 배차 관리 및 화물 전용 실시간 네비게이션 제공. 4) 안드로이드 OS 기반의 CBS SDK 개발 및 특허 보유 등을 보유하고 있습니다."
     images:
       - "/images/portfolio/mobile_reno.png"
       - "/images/portfolio/mobile_hd.png"
@@ -61,7 +60,7 @@ services:
       link: /contact
 
   - title: "Backend System"
-    content: "국내 모기업 Global Service Infra에 MSA 도입 및 구축. Oauth 2.0(개방형 표준 프로토콜) & Apache Camel을 통신사 인프라시스템에 적용, 기존 Backend System의 운영제약 사항을 개선(분산환경 지원, HW&SW 의존성) 하였으며, 비정형 DB를 해당 통신사 인프라 최초 적용하고 안정화 시킴."
+    content: "국내 OO기업의 Global Service Infra에 AWS환경 기반 MSA를 도입 및 구축 하였습니다. 또한, 통신사 인프라시스템에 Oauth 2.0(개방형 표준 프로토콜)을 적용 하였으며, 성능 확보와 Backend System의 운영제약 사항(분산환경 지원, HW&SW 의존성 등)을 개선하기 위하여 Apache Camel 프레임워크와 비정형 DB를 해당 통신사 인프라에 최초 적용 하였습니다."
     images:
       - "/images/portfolio/backend_auto.png"
       - "/images/portfolio/backend_oauth.png"
