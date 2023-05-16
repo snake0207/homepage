@@ -20,7 +20,7 @@ const Logo = ({ src }) => {
         <Image
           width={logo_width.replace("px", "") * 2}
           height={logo_height.replace("px", "") * 2}
-          src={src ? src : logo}
+          src={src ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${src}` : logo}
           alt={title}
           priority
         />

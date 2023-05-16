@@ -24,7 +24,7 @@ const Home = ({ frontmatter }) => {
               {banner.button.enable && (
                 <Link
                   className="btn btn-primary mt-4"
-                  href={banner.button.link}
+                  href={`${process.env.NEXT_PUBLIC_IMAGEPATH}${banner.button.link}`}
                   rel={banner.button.rel}
                   target="_blank"
                 >
@@ -33,7 +33,7 @@ const Home = ({ frontmatter }) => {
               )}
               <Image
                 className="mx-auto mt-12"
-                src={banner.image}
+                src={`${process.env.NEXT_PUBLIC_IMAGEPATH}${banner.image}`}
                 width={750}
                 height={390}
                 alt="banner image"
@@ -59,7 +59,7 @@ const Home = ({ frontmatter }) => {
                 {item.icon && (
                   <Image
                     className="mx-auto"
-                    src={item.icon}
+                    src={`${process.env.NEXT_PUBLIC_IMAGEPATH}${item.icon}`}
                     width={30}
                     height={30}
                     alt=""
@@ -102,7 +102,12 @@ const Home = ({ frontmatter }) => {
                     {/* Slides */}
                     {service?.images.map((slide, index) => (
                       <SwiperSlide key={index}>
-                        <Image src={slide} alt="" width={600} height={500} />
+                        <Image
+                          src={`${process.env.NEXT_PUBLIC_IMAGEPATH}${slide}`}
+                          alt=""
+                          width={600}
+                          height={500}
+                        />
                       </SwiperSlide>
                     ))}
                   </Swiper>

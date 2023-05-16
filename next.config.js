@@ -5,13 +5,11 @@
 const nextConfig = {
   reactStrictMode: true,
   // basePath: "/homepage",
-  // assetPrefix:
-  //   process.env.NODE_ENV === "production"
-  //     ? "https://snake0207.github.io/homepage"
-  //     : "",
   images: {
     unoptimized: true,
+    path: process.env.NEXT_PUBLIC_HOMEURL,
   },
+  assetPrefix: process.env.NEXT_PUBLIC_IMAGEPATH,
 };
 
 module.exports = nextConfig;

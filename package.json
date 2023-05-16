@@ -10,7 +10,7 @@
     "lint": "next lint",
     "predeploy": "shx rm -rf node_modules/.cache && npm run export",
     "deploy": "shx touch out/.nojekyll && gh-pages -d out --dotfiles",
-    "start": "next start -p 443"
+    "start": "next start -p 8080"
   },
   "dependencies": {
     "github-slugger": "^2.0.0",
