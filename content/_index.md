@@ -47,7 +47,7 @@ services:
       link: /contact
 
   - title: "Mobile Application"
-    content: "순수 OS 기반의 Native App, Hybrid 및 모바일 웹 기반의 Application을 구현 및 제공합니다. 1) 앱을 이용한 차량 상태 확인 및 원격관리. 2) 예비운전자를 위한 운전연수 학원 매칭. 3) 화물 배차 관리 및 화물 전용 실시간 네비게이션 제공. 4) 안드로이드 OS 기반의 CBS SDK 개발 및 특허 보유 등을 보유하고 있습니다."
+    content: "순수 OS 기반의 Native App, Hybrid 및 모바일 웹 기반의 Application을 구현 및 제공합니다. 앱을 이용한 차량 상태 확인 및 원격관리, 예비운전자를 위한 운전연수 학원 매칭, 화물 배차 관리 및 화물 전용 실시간 네비게이션 정도 등을 제공하고 있습니다. 또한, 안드로이드 OS 기반의 CBS SDK 개발하여 협력 업체 등에 제공 중이며, 이와 관련된 특허를 보유하고 있습니다."
     images:
       - "/images/portfolio/mobile_reno.png"
       - "/images/portfolio/mobile_hd.png"
