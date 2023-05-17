@@ -7,7 +7,9 @@
 
 <!-- installation -->
 
-### 반드시 설치해야 하는 것
+## Installation
+
+### Prerequisite
 
 - **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version]
 
