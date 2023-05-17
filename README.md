@@ -1,36 +1,28 @@
-<!-- download -->
-
-## Download
-
-Download this template from [Github](https://github.com/themefisher/bigspring-light-nextjs/archive/main.zip)
-
 ## Key Features
 
-- Simple and Minimal
-- Fully Responsive
-- Google Page Speed score 100! (Desktop)
-- Google analytics support
-- Caching enabled
-- Supports Contact Form
-- SEO Friendly
+- NextJS 프레임웍 사용
+- 반응형
+- github deploy
+- github의 Custom Domain과 가비아 연결
+
 <!-- installation -->
 
-## Installation
-
-After downloading the template, you have some prerequisites to install. Then you can run it on your localhost. You can view the package.json file to see which scripts are included.
-
-### Install prerequisites (once for a machine)
+### 반드시 설치해야 하는 것
 
 - **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version]
 
-### Local setup
+### Local 환경 설정
 
-After successfully installing those dependencies, open this template with any IDE [[VS Code](https://code.visualstudio.com/) recommended], and then open the internal terminal of IDM [vs code shortcut <code>ctrl/cmd+\`</code>]
+기본적으로 IDE 설치 [[VS Code](https://code.visualstudio.com/) recommended] 후 사용할 것을 권장
 
-- Install dependencies
+- Configuration setup
 
 ```
-npm install
+    1. git init .
+    2. git remote add origin https://github.com/snake0207/homepage.git
+    3. git pull origin master
+    4. npm install next@latest react@latest react-dom@latest
+    5. npm install gh-pages -D
 ```
 
 - Run locally
@@ -49,12 +41,6 @@ After finishing all the customization, you can create a production build by runn
 npm run build
 ```
 
-<!-- support -->
-
-## Technical Support or Questions (Paid)
-
-If you have questions or need help integrating the product please [contact us](https://themefisher.com/contact) instead of opening an issue.
-
 <!-- licence -->
 
 ## License
@@ -64,10 +50,3 @@ Copyright (c) 2016 - Present, Designed & Developed by [Themefisher](https://them
 **Code License:** Released under the [MIT](https://github.com/themefisher/bigspring-light-nextjs/blob/main/LICENSE) license.
 
 **Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
-
-## Hire Us
-
-Besides developing unique, blazing-fast Nextjs templates, we also provide customized services. We specialize in creating affordable, high-quality static websites based on Nextjs.
-
-If you need to customize the theme or complete website development from scratch, you can hire us. **Check Our
-[Contact Page](https://themefisher.com/contact)**
