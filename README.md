@@ -15,7 +15,7 @@
 
 ### Local 환경 설정
 
-기본적으로 IDE 설치 [[VS Code](https://code.visualstudio.com/) recommended] 후 사용할 것을 권장
+IDE 설치 [[VS Code](https://code.visualstudio.com/) recommended] 후 사용할 것을 권장
 
 - Configuration setup
 
