@@ -4,8 +4,12 @@ banner:
   content: 미래를 현실화하는 기술력을 바탕으로 모바일 영역에서부터 Backend 시스템까지 다양한 IT환경에 최적의 서비스를 제공합니다.
   image: /images/banner-art.png
   button:
-    label: "회사소개서 Download"
+    label: "소개합니다"
     link: "/doc/acrofuture.pdf"
+    enable: true
+  recruit:
+    label: "우리 함께해요"
+    link: "/images/recruit.png"
     enable: true
 
 # feature
