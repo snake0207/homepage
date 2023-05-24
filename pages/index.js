@@ -23,12 +23,22 @@ const Home = ({ frontmatter }) => {
               <p className="mt-4">{markdownify(banner.content)}</p>
               {banner.button.enable && (
                 <Link
-                  className="btn btn-primary mt-4"
+                  className="btn btn-primary mr-2 mt-4"
                   href={`${process.env.NEXT_PUBLIC_IMAGEPATH}${banner.button.link}`}
                   rel={banner.button.rel}
                   target="_blank"
                 >
                   {banner.button.label}
+                </Link>
+              )}
+              {banner.recruit.enable && (
+                <Link
+                  className="btn btn-outline-primary mt-4"
+                  href={`${process.env.NEXT_PUBLIC_IMAGEPATH}${banner.recruit.link}`}
+                  rel={banner.recruit.rel}
+                  target="_blank"
+                >
+                  {banner.recruit.label}
                 </Link>
               )}
               <Image
