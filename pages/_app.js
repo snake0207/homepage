@@ -52,6 +52,10 @@ const App = ({ Component, pageProps }) => {
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
+        <meta
+          name="naver-site-verification"
+          content="5a46bb6a0d89b0f1e217f2d3d5d6b9ceea9d43fc"
+        />
       </Head>
       <Component {...pageProps} />
     </>
