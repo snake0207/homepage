@@ -7,13 +7,15 @@
 
 <!-- installation -->
 
-### 반드시 설치해야 하는 것
+## Installation
+
+### Prerequisite
 
 - **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version]
 
 ### Local 환경 설정
 
-기본적으로 IDE 설치 [[VS Code](https://code.visualstudio.com/) recommended] 후 사용할 것을 권장
+IDE 설치 [[VS Code](https://code.visualstudio.com/) recommended] 후 사용할 것을 권장
 
 - Configuration setup
 
