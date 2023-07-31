@@ -9,7 +9,7 @@ banner:
     enable: true
   recruit:
     label: "함께 하실래요?"
-    link: "/images/recruit.png"
+    link: "/images/recruit_shalf.png"
     enable: true
 
 # feature
