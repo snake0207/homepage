@@ -1,20 +1,20 @@
 ---
 banner:
-  title: What we do well
-  content: 미래를 현실화하는 기술력을 바탕으로 모바일 영역에서부터 Backend 시스템까지 다양한 IT환경에 최적의 서비스를 제공합니다.
+  title: Who Are We ?
+  content: 오랜 경험과 미래를 현실화하는 기술력을 바탕으로 우리 모두가 함께 누릴 수 있는 미래를 만들어가도록 오늘도 노력하고 있습니다.
   image: /images/banner-art.png
   button:
-    label: "소개할게요"
+    label: "저희를 소개할게요"
     link: "/doc/acrofuture.pdf"
     enable: true
   recruit:
-    label: "함께 하실래요?"
+    label: "Recruit"
     link: "/images/recruit_shalf.png"
     enable: true
 
 # feature
 feature:
-  title: What we are doing
+  title: What We Do
   features:
     - name: "Realtime Marketing"
       icon: "/images/speedometer.svg"
