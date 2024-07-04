@@ -4,8 +4,8 @@
     "base_url": "/",
     "favicon": "/images/favicon.ico",
     "logo": "/images/acrofuture.svg",
-    "logo_width": "200",
-    "logo_height": "48",
+    "logo_width": "150",
+    "logo_height": "36",
     "logo_text": "acrofuture"
   },
 
@@ -18,7 +18,7 @@
   "params": {
     "contact_form_action": "",
     "tag_manager_id": "",
-    "footer_content": "",
+    "footer_content": "서울시 강남구 도곡로2길 14(도곡동, 규원빌딩)3층    사업자번호: 211-88-29376",
     "copyright": "Copyright (c) Designed & Developed by [Themefisher](https://themefisher.com)"
   },
 

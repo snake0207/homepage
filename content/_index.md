@@ -1,74 +1,68 @@
 ---
 banner:
-  title: Who Are We ?
-  content: 오랜 경험과 미래를 현실화하는 기술력을 바탕으로 우리 모두가 함께 누릴 수 있는 미래를 만들어가도록 오늘도 노력하고 있습니다.
-  image: /images/banner-art.png
+  title: 아크로퓨처
+  content: acro(최고의) future(미래), 고객의 믿음과 신뢰의 기업입니다.
+  subContent: 이동통신 분야 및 금융 IT시스템 개발에 이르기까지 축적된 기술 개발 및 운영 know-how로 사람과 기술이 어우러진 기업이 되도록 노력 하겠습니다.
+  image: /images/2024_introduce_back.svg
   button:
-    label: "저희를 소개할게요"
-    link: "/doc/acrofuture.pdf"
+    label: "About US"
+    link: "/acrofuture.pdf"
     enable: true
   recruit:
     label: "Recruit"
     link: "/images/recruit_shalf.png"
-    enable: true
+    enable: false
 
 # feature
 feature:
-  title: What We Do
-  features:
-    - name: "Realtime Marketing"
-      icon: "/images/speedometer.svg"
-      content: "통신사 CBS망을 이용한 실시간 위치기반 Push 기술 및 특허"
-    - name: "Mobile Service"
-      icon: "/images/user-clock.svg"
-      content: "금융, 이동통신, 유통 및 물류 분야의 모바일 서비스 구축 & 운영"
-    - name: "Backend System"
-      icon: "/images/code.svg"
-      content: "LBS, 인증 및 Data Aggregater 등 다양한 산업군에 대한 Backend 구축 & 운영"
+  title: What Are Our Strengths
+  items:
+    - name: "YEARS OF EXPERIENCE"
+      content: "+15"
+    - name: "PROJECT DONE"
+      content: "+80"
+    - name: "RESOURCES"
+      content: "+110"
+    - name: "DEVELOPER RATIO"
+      content: "+92%"
 
-# services
+# works
+works:
+  title: "Recently Our Works"
+  content: "Public, Private 네트웍 환경에서의 특정 대상에 대한 위치정보를 수집 및 제공하고자 할 경우 LBS Solution을 이용하실 수 있습니다. 국가재난안전망사업에 도입된 솔루션은 성능과 안정성을 입증하였으며, 다양한 서비스환경을 고려한 Cross-platform을 지원하고 있습니다."
+  image: /images/2024_slide_back.svg
+  pc_images:
+    - "/images/pc_hds.svg"
+    - "/images/pc_dgb.svg"
+    - "/images/pc_hd.svg"
+    - "/images/pc_blackvue.svg"
+    - "/images/pc_ktbiz.svg"
+  mob_images:
+    - "/images/mob_blackvue.svg"
+    - "/images/mob_dgb.svg"
+    - "/images/mob_reno.svg"
+    - "/images/mob_hd.svg"
+  button:
+    enable: false
+    label: Check it out
+    link: /contact
+
+# service
 services:
-  - title: "LBS Solutions"
-    content: "Public, Private 네트웍 환경에서의 특정 대상에 대한 위치정보를 수집 및 제공하고자 할 경우 LBS Solution을 이용하실 수 있습니다. 국가재난안전망사업에 도입된 솔루션은 성능과 안정성을 입증하였으며, 다양한 서비스환경을 고려한 Cross-platform을 지원하고 있습니다."
-    images:
-      - "/images/portfolio/solution_lbs.png"
-      - "/images/portfolio/solution_wps.png"
-    button:
-      enable: false
-      label: Check it out
-      link: /contact
-
-  - title: "Web Application"
-    content: "금융, 통신 및 물류서비스에 축적된 다양한 기술 Know-how(전자서명, 인증, OCR, 보안 등)를 기반으로 고객서비스부터 Admin Web까지, MSA로 제공되는 우리만의 서비스를 지금 만날 수 있습니다."
-    images:
-      - "/images/portfolio/pc_hd.png"
-      - "/images/portfolio/pc_dgb.png"
-      - "/images/portfolio/pc_ktbiz.png"
-    button:
-      enable: false
-      label: Check it out
-      link: /contact
-
-  - title: "Mobile Application"
-    content: "차량 원격관리, 예비운전자를 위한 운전연수학원 매칭, 화물 배차 관리 및 화물전용 네비게이션 제공 등... 모바일 OS 기반의 서비스를 제공합니다. 자체 개발한 CBS SDK는 안드로이드 기반의 실시간 마케팅 SDK로 관련 특허를 보유하고 있으며, 이통사를 통하여 서비스를 제공하고 있습니다."
-    images:
-      - "/images/portfolio/mobile_reno.png"
-      - "/images/portfolio/mobile_hd.png"
-      - "/images/portfolio/mobile_acro.png"
-      - "/images/portfolio/mobile_cj.png"
-      - "/images/portfolio/mobile_dcg.png"
-    button:
-      enable: false
-      label: Check it out
-      link: /contact
-
-  - title: "Backend System"
-    content: "Backend System은 성능, 안정성 및 분산환경 지원 등의 기능을 기본으로 제공하여야 합니다. 당사는 AWS(Amazon Web Service) 환경의 MSA를 이용한 Global Service Infra를 국내 기업에 제공 중이며, OAuth 2.0(개방형 표준 프로토콜)기반의 인증시스템 구축을 포함하여 현재 국내 이동통신사 LBS Infra에 대한 개발&운영 업무 등을 수행하고 있습니다."
-    images:
-      - "/images/portfolio/backend_auto.png"
-      - "/images/portfolio/backend_oauth.png"
-    button:
-      enable: false
-      label: Check it out
-      link: /contact
+  title: Services We Can Provide
+  image: /images/services_board.svg
+  check: /images/check_dark.svg
+  items:
+    - name: "이동통신사 인프라 / 서비스"
+      emphasis: true
+    - name: "금융사 채널계"
+      emphasis: true
+    - name: "DevOps / MSA / Cloud"
+      emphasis: true
+    - name: "Backend / Web / 모바일App"
+      emphasis: true
+    - name: "NLP(Natural Language Processing)"
+      emphasis: true
+    - name: "대용량 데이터"
+      emphasis: true
 ---

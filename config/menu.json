@@ -1,16 +1,16 @@
 {
   "main": [
     {
+      "name": "Home",
+      "url": "#home"
+    },
+    {
       "name": "About",
       "url": "#about"
     },
     {
       "name": "Work",
-      "url": "#work"
-    },
-    {
-      "name": "Solution",
-      "url": "#solution"
+      "url": "#works"
     },
     {
       "name": "Services",
