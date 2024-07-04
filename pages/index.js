@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import { getListPage } from "../lib/contentParser";
 import { useEffect, useState } from "react";
+import { IoBagCheck, IoCheckboxSharp, IoCheckmark, IoCheckmarkDone, IoShieldCheckmark } from 'react-icons/io5';
 
 const useDevice = () => {
   const { width, height } = useWindowDimensions();
@@ -223,7 +224,7 @@ const Home = ({ frontmatter }) => {
       </section>
 
       {/* services */}
-      <section id="services" className="section">
+      <section id="services" className="section ">
         <div className="container">
           <div className="text-center">
             <h2>{markdownify(services.title)}</h2>
@@ -247,9 +248,9 @@ const Home = ({ frontmatter }) => {
             {/* Content */}
             <div className={`service-content mt-5 md:mt-0`}>
               {services?.items.map((item, index) => (
-                <div className="mt-4 flex" key={index}>
+                <div className="mt-6 ml-4 flex" key={index}>
                   <Image
-                    className="mr-8"
+                    className="mr-4"
                     src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.check}` : `${services.check}`}
                     width={24}
                     height={24}

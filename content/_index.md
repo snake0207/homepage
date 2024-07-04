@@ -55,7 +55,7 @@ services:
   items:
     - name: "이동통신사 인프라 / 서비스"
       emphasis: true
-    - name: "금융사 채널계"
+    - name: "금융사 SI & SM"
       emphasis: true
     - name: "DevOps / MSA / Cloud"
       emphasis: true
