@@ -18,7 +18,10 @@
   "params": {
     "contact_form_action": "",
     "tag_manager_id": "",
-    "footer_content": "서울시 강남구 도곡로2길 14(도곡동, 규원빌딩)3층    사업자번호: 211-88-29376",
+    "footer_content": {
+      "addr": "서울시 강남구 도곡로2길 14(도곡동, 규원빌딩)3층 | 사업자번호: 211-88-29376",
+      "contact": "TEL: 02-6925-1234 | FAX: 02-6280-2134"
+    },
     "copyright": "Copyright (c) Designed & Developed by [Themefisher](https://themefisher.com)"
   },
 

@@ -65,15 +65,15 @@ const Home = ({ frontmatter }) => {
         <div className="container">
           <div className="row text-center">
             <div className="mx-auto text-left md:col-10">
-              <h2 className="text-white">&quot;{banner.title}&quot;</h2>
+              <p className="text-white">&quot;{banner.title}&quot;</p>
 
-              <div className="md:col-8">
-                <p className="mt-12 text-white" style={{ fontSize: "18px", wordBreak: "keep-all" }}>
+              <div>
+                <h2 className="mt-8 text-white" style={{ wordBreak: "keep-all" }}>
                   {markdownify(banner.content)}
-                </p>
-                <p className="mt-6 text-white" style={{ fontSize: "18px", wordBreak: "keep-all" }}>
+                </h2>
+                <h2 className="mt-2 text-white" style={{ wordBreak: "keep-all" }}>
                   {markdownify(banner.subContent)}
-                </p>
+                </h2>
               </div>
               {banner.button.enable && (
                 <Link

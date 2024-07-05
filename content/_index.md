@@ -1,8 +1,8 @@
 ---
 banner:
-  title: 아크로퓨처
-  content: acro(최고의) future(미래), 고객의 믿음과 신뢰의 기업입니다.
-  subContent: 이동통신 분야 및 금융 IT시스템 개발에 이르기까지 축적된 기술 개발 및 운영 know-how로 사람과 기술이 어우러진 기업이 되도록 노력 하겠습니다.
+  title: 최고의 미래
+  content: 우리가 원하던 데이터, 꿈꿔왔던 서비스까지
+  subContent: 바램이 현실로 이루어지는 이곳, 당신을 초대합니다.
   image: /images/2024_introduce_back.svg
   button:
     label: "About US"
@@ -50,19 +50,17 @@ works:
 # service
 services:
   title: Services We Can Provide
-  image: /images/services_board.svg
+  image: /images/services_back.svg
   check: /images/check_dark.svg
   items:
     - name: "이동통신사 인프라 / 서비스"
       emphasis: true
-    - name: "금융사 SI & SM"
+    - name: "금융사 고객 채널"
       emphasis: true
     - name: "DevOps / MSA / Cloud"
       emphasis: true
     - name: "Backend / Web / 모바일App"
       emphasis: true
     - name: "NLP(Natural Language Processing)"
-      emphasis: true
-    - name: "대용량 데이터"
       emphasis: true
 ---
