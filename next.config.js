@@ -3,7 +3,7 @@
  */
 
 const nextConfig = {
-  // output: 'export',
+  output: 'export',
   reactStrictMode: true,
   // basePath: "/homepage",
   images: {
