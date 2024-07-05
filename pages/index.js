@@ -3,12 +3,11 @@ import Base from "@layouts/Baseof";
 import { markdownify } from "@lib/utils/textConverter";
 import Image from "next/image";
 import Link from "next/link";
-import { Autoplay, EffectFade, Navigation, Thumbs } from "swiper";
+import { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import { getListPage } from "../lib/contentParser";
 import { useEffect, useState } from "react";
-import { IoBagCheck, IoCheckboxSharp, IoCheckmark, IoCheckmarkDone, IoShieldCheckmark } from 'react-icons/io5';
 
 const useDevice = () => {
   const { width, height } = useWindowDimensions();
@@ -179,6 +178,7 @@ const Home = ({ frontmatter }) => {
                         alt="project"
                         width={200}
                         height={400}
+                        priority
                       />
                     </SwiperSlide>
                   ))}
@@ -218,6 +218,7 @@ const Home = ({ frontmatter }) => {
                       alt="project"
                       width={500}
                       height={400}
+                      priority
                     />
                   </SwiperSlide>
                 ))}
@@ -236,18 +237,18 @@ const Home = ({ frontmatter }) => {
 
           <div className="mt-12 gap-8 gap-x-16 md:grid md:grid-cols-2">
             {/* Image */}
-            <div className={`items-center service-content mt-5 md:mt-0`}
-            >
+            <div className={`items-center service-content mt-5 md:mt-0`}>
               <Image
-                  src={
-                    process.env.NEXT_PUBLIC_IMAGEPATH
-                      ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.image}`
-                      : `${services.image}`
-                  }
-                  alt="tech cloud "
-                  width={700}
-                  height={400}
-                />
+                src={
+                  process.env.NEXT_PUBLIC_IMAGEPATH
+                    ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.image}`
+                    : `${services.image}`
+                }
+                alt="tech cloud "
+                width={700}
+                height={400}
+                priority
+              />
             </div>
             {/* Content */}
             <div className={`service-content mt-5 md:mt-0`}>
@@ -259,6 +260,7 @@ const Home = ({ frontmatter }) => {
                     width={24}
                     height={24}
                     alt="설명 강조"
+                    priority
                   />
                   {/* {markdownify(item.name, "h4", "h5")} */}
                     {item.emphasis 
