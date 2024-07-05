@@ -1,12 +1,12 @@
 ---
 banner:
   title: 최고의 미래
-  content: 우리가 원하던 데이터, 꿈꿔왔던 서비스까지
-  subContent: 바램이 현실로 이루어지는 이곳, 당신을 초대합니다.
+  content: 오래 꿈꿔온 데이터와 서비스
+  subContent: 이제 현실이 되는 이곳, 함께 시작해 보세요
   image: /images/2024_introduce_back.svg
   button:
     label: "About US"
-    link: "/acrofuture.pdf"
+    link: "/doc/acrofuture.pdf"
     enable: true
   recruit:
     label: "Recruit"
@@ -49,18 +49,21 @@ works:
 
 # service
 services:
+  # title: Services We Can Provide
   title: Services We Can Provide
   image: /images/services_back.svg
   check: /images/check_dark.svg
   items:
-    - name: "이동통신사 인프라 / 서비스"
+    - name: "이동통신사 인프라 및 서비스"
       emphasis: true
     - name: "금융사 고객 채널"
       emphasis: true
-    - name: "DevOps / MSA / Cloud"
+    - name: "DevOps, MSA, Cloud"
       emphasis: true
-    - name: "Backend / Web / 모바일App"
+    - name: "백엔드, 웹, 모바일 어플리케이션"
       emphasis: true
-    - name: "NLP(Natural Language Processing)"
+    - name: "자연어 처리(NLP)"
+      emphasis: true
+    - name: "위치측위 솔루션, CBS활용 Push마케팅"
       emphasis: true
 ---

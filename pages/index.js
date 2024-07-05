@@ -68,17 +68,21 @@ const Home = ({ frontmatter }) => {
               <p className="text-white">&quot;{banner.title}&quot;</p>
 
               <div>
-                <h2 className="mt-8 text-white" style={{ wordBreak: "keep-all" }}>
+                <h2 className="mt-8 text-white" style={{ fontSize: "44px", wordBreak: "keep-all" }}>
                   {markdownify(banner.content)}
                 </h2>
-                <h2 className="mt-2 text-white" style={{ wordBreak: "keep-all" }}>
+                <h2 className="mt-2 text-white" style={{ fontSize: "44px", wordBreak: "keep-all" }}>
                   {markdownify(banner.subContent)}
                 </h2>
               </div>
               {banner.button.enable && (
                 <Link
                   className="btn btn-primary mr-4 mt-24"
-                  href={`${process.env.NEXT_PUBLIC_DOCPATH}${banner.button.link}`}
+                  href={
+                    process.env.NEXT_PUBLIC_DOCPATH
+                      ? `${process.env.NEXT_PUBLIC_DOCPATH}${banner.button.link}`
+                      : `${banner.button.link}`
+                  }
                   rel={banner.button.rel}
                   target="_blank"
                 >
