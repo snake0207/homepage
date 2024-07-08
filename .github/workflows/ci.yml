@@ -28,7 +28,7 @@ jobs:
 
       # Build
       - name: Build
-        run: npm run build && touch out/.nojekyll
+        run: npm run build && touch ./out/.nojekyll
 
       # Deploy
       - name: Deploy
