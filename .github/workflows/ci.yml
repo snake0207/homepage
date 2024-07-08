@@ -32,7 +32,7 @@ jobs:
 
       # Build
       - name: Build
-        run: next build
+        run: npm run build
 
       # Deploy
       - name: Deploy gh-pages
