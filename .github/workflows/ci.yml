@@ -24,23 +24,17 @@ jobs:
         with:
           persist-credentials: false
 
-      # Config git user
-      - name: Config user
-        run: |
-          git config --global user.name "snake0207"
-          git config --global user.email "snake0207@gmail.com"
-
       # Runs a single command using the runners shell
       - name: Node.js
         uses: actions/setup-node@v4.0.2
 
       # Install Dependencies
-      - name: Install Dependencies
-        run: npm install
+      #- name: Install Dependencies
+      #  run: npm install
 
       # Build
-      - name: Build
-        run: npm run build
+      #- name: Build
+      #  run: npm run build
 
       # Deploy
       - name: Deploy gh-pages
