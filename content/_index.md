@@ -2,7 +2,7 @@
 banner:
   title: 최고의 미래
   content: 우리가 이루고자 소망하던 것
-  subContent: 누군가는 소망한것을 이루어냅니다.
+  subContent: 누군가는 소망한 것을 이루어냅니다.
   image: /images/2024_introduce_back.svg
   button:
     label: "About US"
