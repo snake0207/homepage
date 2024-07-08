@@ -21,21 +21,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
-      # Runs a single command using the runners shell
-      - name: Node.js
-        uses: actions/setup-node@v4.0.2
-
-      # Install Dependencies
-      #- name: Install Dependencies
-      #  run: npm install
+      # Install & Build
+      - name: Install Dependencies
+        run: npm install
 
       # Build
-      #- name: Build
-      #  run: npm run build
+      - name: Build
+        run: npm run build && touch out/.nojekyll
 
       # Deploy
-      - name: Deploy gh-pages
-        run: npm run deploy
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.6.3
+        with:
+          branch: gh-pages
+          folder: out
