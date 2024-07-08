@@ -1,3 +1,5 @@
+[![CI](https://github.com/snake0207/acro2024/actions/workflows/ci.yml/badge.svg)](https://github.com/snake0207/acro2024/actions/workflows/ci.yml)
+
 ## Key Features
 
 - NextJS 프레임웍 사용
