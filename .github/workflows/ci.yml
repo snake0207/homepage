@@ -27,8 +27,8 @@ jobs:
         uses: actions/setup-node@v4.0.2
 
       # Install Dependencies
-      - name: Install Dependencies
-        run: npm install
+      #- name: Install Dependencies
+      #  run: npm install
 
       # Build
       - name: Build
