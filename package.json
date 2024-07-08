@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "license": "MIT",
-  "homepage": "http://snake0207.github.io/acro2024",
+  "homepage": "http://snake0207.github.io/homepage",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
