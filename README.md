@@ -43,7 +43,12 @@ After finishing all the customization, you can create a production build by runn
 
 ```
 npm run build
+npm run deploy
 ```
+
+## Auto Build & Deploy
+
+https://github.com/snake0207/acro2024.git 의 branch(2024_home)의 .github/workflows의 ci.yml파일을 이용하여 자동 배포를 수행
 
 <!-- licence -->
 
