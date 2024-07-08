@@ -36,4 +36,4 @@ jobs:
 
       # Deploy
       - name: Deploy gh-pages
-        run: shx touch out/.nojekyll && gh-pages -d out --dotfiles
+        run: npm run deploy
