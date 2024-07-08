@@ -1,13 +1,12 @@
 {
   "name": "acrofuture-homepage",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "license": "MIT",
   "homepage": "http://snake0207.github.io/acro2024",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next build && next export",
     "lint": "next lint",
     "predeploy": "shx rm -rf node_modules/.cache",
     "deploy": "shx touch out/.nojekyll && gh-pages -d out --dotfiles",
