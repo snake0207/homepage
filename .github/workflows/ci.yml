@@ -23,10 +23,17 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: Node.js
         uses: actions/setup-node@v4.0.2
 
-      # Runs a set of commands using the runners shell
-      - name: Run a test-message
-        run: |
-          echo test, and deploy your project.
+      # Install Dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Build
+      - name: Build
+        run: next build & shx rm -rf node_modules/.cache
+
+      # Deploy
+      - name: Deploy gh-pages
+        run: shx touch out/.nojekyll && gh-pages -d out --dotfiles
