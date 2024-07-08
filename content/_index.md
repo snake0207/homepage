@@ -1,8 +1,8 @@
 ---
 banner:
   title: 최고의 미래
-  content: 우리가 이루고자 소망하던 것
-  subContent: 누군가는 소망한 것을 이루어냅니다.
+  content: 사람과 미래가 데이터를 만나
+  subContent: 또다른 현실이 되는 이곳, 함께 시작해 보세요.
   image: /images/2024_introduce_back.svg
   button:
     label: "About US"
