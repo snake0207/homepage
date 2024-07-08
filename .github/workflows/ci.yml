@@ -28,7 +28,7 @@ jobs:
 
       # Install Dependencies
       - name: Install Dependencies
-        run: npm install next@
+        run: npm install
 
       # Build
       - name: Build
