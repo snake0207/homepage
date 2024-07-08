@@ -1,8 +1,8 @@
 ---
 banner:
   title: 최고의 미래
-  content: 오래 꿈꿔온 데이터와 서비스
-  subContent: 이제 현실이 되는 이곳, 함께 시작해 보세요
+  content: 누군가는 소망하고 바래왔지만
+  subContent: 누군가는 소망한걸 이루어냅니다.
   image: /images/2024_introduce_back.svg
   button:
     label: "About US"
