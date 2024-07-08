@@ -28,11 +28,11 @@ jobs:
 
       # Install Dependencies
       - name: Install Dependencies
-        run: npm install
+        run: npm install next@
 
       # Build
       - name: Build
-        run: next build & shx rm -rf node_modules/.cache
+        run: next build
 
       # Deploy
       - name: Deploy gh-pages
