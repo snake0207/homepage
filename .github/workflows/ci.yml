@@ -21,6 +21,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      - run: git config --global user.name "snake0207"
+      - run: git config --global user.email "snake0207@gmail.com"
 
       # Runs a single command using the runners shell
       - name: Node.js
