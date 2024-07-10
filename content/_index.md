@@ -36,11 +36,11 @@ works:
     - "/images/mob_reno.svg"
     - "/images/mob_hd.svg"
   pc_images:
-    - "/images/pc_hds.svg"
-    - "/images/pc_dgb.svg"
     - "/images/pc_hd.svg"
-    - "/images/pc_drive.svg"
+    - "/images/pc_dgb.svg"
+    - "/images/pc_hds.svg"
     - "/images/pc_blackvue.svg"
+    - "/images/pc_drive.svg"
     - "/images/pc_ktbiz.svg"
   button:
     enable: false
