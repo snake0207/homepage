@@ -202,6 +202,10 @@ const Home = ({ frontmatter }) => {
               centeredSlides={true}
               modules={[Autoplay, slideEffect.module]}
               effect={slideEffect.effect}
+              cardsEffect={{
+                slideShadows: false,
+                rotate: true,
+              }}
               autoplay={{
                 delay: 3000,
               }}
