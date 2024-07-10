@@ -1,5 +1,4 @@
 import config from "@config/config.json";
-import Image from "next/image";
 import Link from "next/link";
 
 const Logo = ({ src }) => {

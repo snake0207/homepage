@@ -11,41 +11,7 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/effect-coverflow';
 import { getListPage } from "../lib/contentParser";
 import { useEffect, useRef, useState } from "react";
-
-const useDevice = () => {
-  const { width, height } = useWindowDimensions();
-
-  console.log('useWindowDimensions : ', width, height);
-
-  if (width >= 1280) return {slidesPerView: 3, spaceBetween: 30};
-  else if (width < 1280 && width >= 768)  return {slidesPerView: 2, spaceBetween: 20};
-  else  return {slidesPerView: 1, spaceBetween: 10};
-};
-
-const useWindowDimensions = () => {
-  const [windowDimensions, setWindowDimensions] = useState({
-    width: undefined,
-    height: undefined,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      console.log('window : ', window.innerWidth);
-      setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    handleResize(); // 초기 렌더링 시 실행
-    window.addEventListener("resize", handleResize);
-
-    // 클린업 함수로 이벤트 리스너 제거
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return windowDimensions;
-};
+import Image from 'next/image';
 
 const Home = ({ frontmatter }) => {
   const { banner, feature, works, services, patent } = frontmatter;
@@ -67,7 +33,7 @@ const Home = ({ frontmatter }) => {
       }
       else {
         setSlidesPerView(1)
-        setSlideEffect({effect: 'cards', module: EffectCards, data: [...works?.mob_images]});
+        setSlideEffect({effect: 'cards', module: EffectCards, data: works?.mob_images});
       }
 
       // Swiper 크기 설정
@@ -84,10 +50,7 @@ const Home = ({ frontmatter }) => {
 
     // 클린업 함수로 이벤트 리스너 제거
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-
-  console.log('slideEffect : ', slideEffect);
+  }, [works?.pc_images, works?.mob_images]);
 
   return (
     <Base title={title}>
@@ -299,7 +262,7 @@ const Home = ({ frontmatter }) => {
               {markdownify(patent.title)}
             </h2>
           </div>
-          <div className="mt-12" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: "wrap"}}>
+          <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', gap: '0 24px', flexWrap: "wrap"}}>
             {patent.items.map((item, i) => (
               <div
                 // className="mt-8 feature-card rounded-xl bg-white p-5 pb-8"
@@ -307,12 +270,12 @@ const Home = ({ frontmatter }) => {
                 key={`feature-${i}`}
               >
                 <div>
-                <img
-                    src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item}` : `${item}`}
-                    width={300}
-                    height={600}
-                    alt="보유 특허"
-                  />
+                  <img
+                      src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item}` : `${item}`}
+                      width={300}
+                      height={600}
+                      alt="보유 특허"
+                    />
                 </div>
               </div>
             ))}
