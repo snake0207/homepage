@@ -29,19 +29,18 @@ feature:
 # works
 works:
   title: "Recently Our Works"
-  content: "Public, Private 네트웍 환경에서의 특정 대상에 대한 위치정보를 수집 및 제공하고자 할 경우 LBS Solution을 이용하실 수 있습니다. 국가재난안전망사업에 도입된 솔루션은 성능과 안정성을 입증하였으며, 다양한 서비스환경을 고려한 Cross-platform을 지원하고 있습니다."
   image: /images/2024_slide_back.svg
+  mob_images:
+    - "/images/mob_blackvue.svg"
+    - "/images/mob_dgb.svg"
+    - "/images/mob_reno.svg"
+    - "/images/mob_hd.svg"
   pc_images:
     - "/images/pc_hds.svg"
     - "/images/pc_dgb.svg"
     - "/images/pc_hd.svg"
     - "/images/pc_blackvue.svg"
     - "/images/pc_ktbiz.svg"
-  mob_images:
-    - "/images/mob_blackvue.svg"
-    - "/images/mob_dgb.svg"
-    - "/images/mob_reno.svg"
-    - "/images/mob_hd.svg"
   button:
     enable: false
     label: Check it out
@@ -49,7 +48,6 @@ works:
 
 # service
 services:
-  # title: Services We Can Provide
   title: Services We Can Provide
   image: /images/services_back.svg
   check: /images/check_dark.svg
@@ -66,4 +64,13 @@ services:
       emphasis: true
     - name: "위치측위 솔루션, CBS활용 Push마케팅"
       emphasis: true
+
+# service
+patent:
+  title: "Technology Patents & Awards"
+  image: /images/2024_strengths_back.svg
+  items:
+    - "/images/patent_push.svg"
+    - "/images/patent_lbs.svg"
+    - "/images/award.svg"
 ---

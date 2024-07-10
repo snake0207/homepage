@@ -17,12 +17,11 @@ const Logo = ({ src }) => {
       }}
     >
       {src || logo ? (
-        <Image
+        <img
           width={logo_width.replace("px", "") * 2}
           height={logo_height.replace("px", "") * 2}
           src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${src}` : logo}
           alt={title}
-          priority
         />
       ) : logo_text ? (
         logo_text

@@ -1,20 +1,25 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { markdownify } from "@lib/utils/textConverter";
-import Image from "next/image";
 import Link from "next/link";
-import { Autoplay } from "swiper";
+import { Autoplay, EffectCards, EffectCoverflow, EffectCube } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.min.css";
+// import "swiper/swiper.min.css";
+import 'swiper/css';
+import 'swiper/css/effect-cards';
+import 'swiper/css/effect-cube';
+import 'swiper/css/effect-coverflow';
 import { getListPage } from "../lib/contentParser";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const useDevice = () => {
   const { width, height } = useWindowDimensions();
 
-  if (width >= 1024) return 3;
-  else if (width < 1024 && width >= 768) return 2;
-  else return 1;
+  console.log('useWindowDimensions : ', width, height);
+
+  if (width >= 1280) return {slidesPerView: 3, spaceBetween: 30};
+  else if (width < 1280 && width >= 768)  return {slidesPerView: 2, spaceBetween: 20};
+  else  return {slidesPerView: 1, spaceBetween: 10};
 };
 
 const useWindowDimensions = () => {
@@ -25,6 +30,7 @@ const useWindowDimensions = () => {
 
   useEffect(() => {
     const handleResize = () => {
+      console.log('window : ', window.innerWidth);
       setWindowDimensions({
         width: window.innerWidth,
         height: window.innerHeight,
@@ -42,9 +48,53 @@ const useWindowDimensions = () => {
 };
 
 const Home = ({ frontmatter }) => {
-  const { banner, feature, works, services } = frontmatter;
+  const { banner, feature, works, services, patent } = frontmatter;
   const { title } = config.site;
-  const deviceView = useDevice();
+  const [swiperSize, setSwiperSize] = useState({ width: 0, height: 0 });
+  const swiperRef = useRef(null);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+  const [slideEffect, setSlideEffect] = useState({ 
+    effect: 'cube',
+    module: EffectCube,
+    data: []});
+
+  // useEffect(() => {
+  //   if (slidesPerView === 1)
+  //     setSlideEffect({effect: 'cube', module: EffectCube, data: works?.mob_images});
+  //   else
+  //     setSlideEffect({effect: 'cards', module: EffectCards, data: works?.pc_images});
+  // }, [slidesPerView]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      console.log('window : ', window.innerWidth);
+      if (window.innerWidth >= 768) {
+        setSlidesPerView('auto')
+        setSlideEffect({effect: 'cards', module: EffectCards, data: works?.pc_images});
+      }
+      else {
+        setSlidesPerView(1)
+        setSlideEffect({effect: 'cube', module: EffectCube, data: [...works?.mob_images]});
+      }
+
+      // Swiper 크기 설정
+      if (swiperRef.current) {
+        setSwiperSize({
+          width: swiperRef.current.clientWidth * 0.5,
+          height: swiperRef.current.clientHeight * 0.6
+        })
+      }
+    };
+
+    handleResize(); // 초기 렌더링 시 실행
+    window.addEventListener("resize", handleResize);
+
+    // 클린업 함수로 이벤트 리스너 제거
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
+  console.log('slideEffect : ', slideEffect);
 
   return (
     <Base title={title}>
@@ -67,10 +117,10 @@ const Home = ({ frontmatter }) => {
               <p className="text-white">&quot;{banner.title}&quot;</p>
 
               <div>
-                <h2 className="mt-8 text-white" style={{ fontSize: "44px", wordBreak: "keep-all" }}>
+                <h2 className="mt-8 text-white" style={{ fontSize: slidesPerView === 1 ? "28px" : "44px", wordBreak: "keep-all" }}>
                   {markdownify(banner.content)}
                 </h2>
-                <h2 className="mt-2 text-white" style={{ fontSize: "44px", wordBreak: "keep-all" }}>
+                <h2 className="mt-2 text-white" style={{ fontSize: slidesPerView === 1 ? "28px" : "44px", wordBreak: "keep-all" }}>
                   {markdownify(banner.subContent)}
                 </h2>
               </div>
@@ -149,82 +199,45 @@ const Home = ({ frontmatter }) => {
               {works?.title}
             </h2>
           </div>
+        </div>
 
-          <div className="mt-12">
-            {/* Carousel */}
-            <div
-              style={{ width: deviceView == 1 ? "30%" : "20%", margin: "auto" }}
+        <div ref={swiperRef} className="mt-12">
+            { slideEffect.data.length > 0 && (
+            <Swiper
+              loop={true}
+              slidesPerView={slidesPerView}
+              centeredSlides={true}
+              modules={[Autoplay, slideEffect.module]}
+              effect={slideEffect.effect}
+              autoplay={{
+                delay: 5000,
+              }}
+              style={{ border: `3px solid yellow`}}
             >
-              <div className={`service-carousel`}>
-                <Swiper
-                  loop={true}
-                  slidesPerView={1}
-                  spaceBetween={10}
-                  modules={[Autoplay]}
-                  autoplay={{
-                    delay: 8000,
-                    disableOnInteraction: false,
+              { 
+                slideEffect.data.map((slide, index) => (
+                <SwiperSlide key={index}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                   }}
                 >
-                  {/* Slides */}
-                  {works?.mob_images.map((slide, index) => (
-                    <SwiperSlide key={index}>
-                      <Image
-                        src={
-                          process.env.NEXT_PUBLIC_IMAGEPATH
-                            ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${slide}`
-                            : `${slide}`
-                        }
-                        alt="project"
-                        width={200}
-                        height={400}
-                        priority
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="mt-12 ">
-          <div
-            style={{
-              width: deviceView == 1 ? "80vw" : "100vw",
-              margin: "auto",
-            }}
-          >
-            {/* Carousel */}
-            <div className={`service-carousel`}>
-              <Swiper
-                loop={true}
-                slidesPerView={deviceView}
-                spaceBetween={deviceView == 1 ? 20 : 30}
-                modules={[Autoplay]}
-                autoplay={{
-                  delay: 5000,
-                  disableOnInteraction: false,
-                }}
-              >
-                {/* Slides */}
-                {works?.pc_images.map((slide, index) => (
-                  <SwiperSlide key={index}>
-                    <Image
-                      src={
-                        process.env.NEXT_PUBLIC_IMAGEPATH
-                          ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${slide}`
-                          : `${slide}`
-                      }
-                      alt="project"
-                      width={500}
-                      height={400}
-                      priority
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-          </div>
+                  <img
+                    src={
+                      process.env.NEXT_PUBLIC_IMAGEPATH
+                        ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${slide}`
+                        : `${slide}`
+                    }
+                    alt="project"
+                    width={swiperSize.width}
+                    height={swiperSize.height}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            )
+            }
         </div>
       </section>
 
@@ -238,7 +251,7 @@ const Home = ({ frontmatter }) => {
           <div className="mt-12 gap-8 gap-x-16 md:grid md:grid-cols-2">
             {/* Image */}
             <div className={`items-center service-content mt-5 md:mt-0`}>
-              <Image
+              <img
                 src={
                   process.env.NEXT_PUBLIC_IMAGEPATH
                     ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.image}`
@@ -247,20 +260,18 @@ const Home = ({ frontmatter }) => {
                 alt="tech cloud "
                 width={700}
                 height={400}
-                priority
               />
             </div>
             {/* Content */}
             <div className={`service-content mt-5 md:mt-0`}>
               {services?.items.map((item, index) => (
                 <div className="mt-6 ml-4 flex" key={index}>
-                  <Image
+                  <img
                     className="mr-4"
                     src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.check}` : `${services.check}`}
                     width={24}
                     height={24}
                     alt="설명 강조"
-                    priority
                   />
                   {/* {markdownify(item.name, "h4", "h5")} */}
                     {item.emphasis 
@@ -274,12 +285,49 @@ const Home = ({ frontmatter }) => {
           
         </div>
       </section>
+
+      {/* Patent */}
+      <section id="patent" className="section bg-theme-light"
+        style={{
+          backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
+            ? `url(
+            ${process.env.NEXT_PUBLIC_IMAGEPATH}${patent.image}
+          )`
+            : `url(${patent.image})`,
+          backgroundSize: "cover",
+        }}      
+      >
+        <div className="container">
+          <div>
+            <h2 className="text-center font-bold text-white">
+              {markdownify(patent.title)}
+            </h2>
+          </div>
+          <div className="mt-12" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: "wrap"}}>
+            {patent.items.map((item, i) => (
+              <div
+                // className="mt-8 feature-card rounded-xl bg-white p-5 pb-8"
+                className="mt-8 rounded-xl bg-white p-5 pb-8"
+                key={`feature-${i}`}
+              >
+                <div>
+                <img
+                    src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item}` : `${item}`}
+                    width={300}
+                    height={600}
+                    alt="보유 특허"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </Base>
   );
 };
 
 export const getStaticProps = async () => {
-  console.log("display");
   const homePage = await getListPage("content/_index.md");
   const { frontmatter } = homePage;
   return {
