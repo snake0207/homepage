@@ -54,27 +54,20 @@ const Home = ({ frontmatter }) => {
   const swiperRef = useRef(null);
   const [slidesPerView, setSlidesPerView] = useState(1);
   const [slideEffect, setSlideEffect] = useState({ 
-    effect: 'cube',
-    module: EffectCube,
+    effect: 'card',
+    module: EffectCards,
     data: []});
-
-  // useEffect(() => {
-  //   if (slidesPerView === 1)
-  //     setSlideEffect({effect: 'cube', module: EffectCube, data: works?.mob_images});
-  //   else
-  //     setSlideEffect({effect: 'cards', module: EffectCards, data: works?.pc_images});
-  // }, [slidesPerView]);
 
   useEffect(() => {
     const handleResize = () => {
-      console.log('window : ', window.innerWidth);
+      // console.log('window : ', window.innerWidth);
       if (window.innerWidth >= 768) {
         setSlidesPerView('auto')
         setSlideEffect({effect: 'cards', module: EffectCards, data: works?.pc_images});
       }
       else {
         setSlidesPerView(1)
-        setSlideEffect({effect: 'cube', module: EffectCube, data: [...works?.mob_images]});
+        setSlideEffect({effect: 'cards', module: EffectCards, data: [...works?.mob_images]});
       }
 
       // Swiper 크기 설정
@@ -205,14 +198,13 @@ const Home = ({ frontmatter }) => {
             { slideEffect.data.length > 0 && (
             <Swiper
               loop={true}
-              slidesPerView={slidesPerView}
+              slidesPerView={'auto'}
               centeredSlides={true}
               modules={[Autoplay, slideEffect.module]}
               effect={slideEffect.effect}
               autoplay={{
                 delay: 5000,
               }}
-              style={{ border: `3px solid yellow`}}
             >
               { 
                 slideEffect.data.map((slide, index) => (
