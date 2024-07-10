@@ -203,7 +203,7 @@ const Home = ({ frontmatter }) => {
               modules={[Autoplay, slideEffect.module]}
               effect={slideEffect.effect}
               autoplay={{
-                delay: 5000,
+                delay: 3000,
               }}
             >
               { 
