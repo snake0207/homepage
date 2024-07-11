@@ -1,16 +1,16 @@
-import config from "@config/config.json";
-import Base from "@layouts/Baseof";
-import { markdownify } from "@lib/utils/textConverter";
-import Link from "next/link";
-import { Autoplay, EffectCards, EffectCoverflow, EffectCube } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/swiper.min.css";
+import config from '@config/config.json';
+import Base from '@layouts/Baseof';
+import { markdownify } from '@lib/utils/textConverter';
+import Link from 'next/link';
+import { Autoplay, EffectCards, EffectCube } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// import 'swiper/swiper.min.css';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
 import 'swiper/css/effect-cube';
 import 'swiper/css/effect-coverflow';
-import { getListPage } from "../lib/contentParser";
-import { useEffect, useRef, useState } from "react";
+import { getListPage } from '../lib/contentParser';
+import { useEffect, useRef, useState } from 'react';
 import { FetchImage } from '@lib/utils/imageDom';
 
 const Home = ({ frontmatter }) => {
@@ -46,10 +46,10 @@ const Home = ({ frontmatter }) => {
     };
 
     handleResize(); // 초기 렌더링 시 실행
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     // 클린업 함수로 이벤트 리스너 제거
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [works?.pc_images, works?.mob_images]);
 
   return (
@@ -64,7 +64,7 @@ const Home = ({ frontmatter }) => {
             ${process.env.NEXT_PUBLIC_IMAGEPATH}${banner.image}
           )`
             : `url(${banner.image})`,
-          backgroundSize: "cover",
+          backgroundSize: 'cover',
         }}
       >
         <div className="container">
@@ -73,10 +73,10 @@ const Home = ({ frontmatter }) => {
               <p className="text-white">&quot;{banner.title}&quot;</p>
 
               <div>
-                <h2 className="mt-8 text-white" style={{ fontSize: slidesPerView === 1 ? "28px" : "44px", wordBreak: "keep-all" }}>
+                <h2 className="mt-8 text-white" style={{ fontSize: slidesPerView === 1 ? '28px' : '44px', wordBreak: 'keep-all' }}>
                   {markdownify(banner.content)}
                 </h2>
-                <h2 className="mt-2 text-white" style={{ fontSize: slidesPerView === 1 ? "28px" : "44px", wordBreak: "keep-all" }}>
+                <h2 className="mt-2 text-white" style={{ fontSize: slidesPerView === 1 ? '28px' : '44px', wordBreak: 'keep-all' }}>
                   {markdownify(banner.subContent)}
                 </h2>
               </div>
@@ -126,7 +126,7 @@ const Home = ({ frontmatter }) => {
                 key={`feature-${i}`}
               >
                 <div className="mt-4">
-                  {markdownify(item.name, "h5", "h6")}
+                  {markdownify(item.name, 'h5', 'h6')}
                   <h2 className="mt-3">{item.content}</h2>
                 </div>
               </div>
@@ -138,19 +138,19 @@ const Home = ({ frontmatter }) => {
       {/* services */}
       <section
         id={"works"}
-        key={`work`}
-        className={`section`}
+        key={"work"}
+        className={"section"}
         style={{
           backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
             ? `url(
             ${process.env.NEXT_PUBLIC_IMAGEPATH}${works.image}
           )`
             : `url(${works.image})`,
-          backgroundSize: "cover",
+          backgroundSize: 'cover',
         }}
       >
         <div className="container">
-          <div className={`service-content`}>
+          <div className={"service-content"}>
             <h2 className="text-center font-bold leading-[40px] text-white">
               {works?.title}
             </h2>
@@ -161,7 +161,7 @@ const Home = ({ frontmatter }) => {
             { slideEffect.data.length > 0 && (
             <Swiper
               loop={true}
-              slidesPerView={'auto'}
+              slidesPerView={"auto"}
               centeredSlides={true}
               modules={[Autoplay, slideEffect.module]}
               effect={slideEffect.effect}
@@ -201,7 +201,7 @@ const Home = ({ frontmatter }) => {
       </section>
 
       {/* services */}
-      <section id="services" className="section ">
+      <section id="services" className="section">
         <div className="container">
           <div className="text-center">
             <h2>{markdownify(services.title)}</h2>
@@ -209,7 +209,7 @@ const Home = ({ frontmatter }) => {
 
           <div className="mt-12 gap-8 gap-x-16 md:grid md:grid-cols-2">
             {/* Image */}
-            <div className={`items-center service-content mt-5 md:mt-0`}>
+            <div className={"items-center service-content mt-5 md:mt-0"}>
               <FetchImage
                 src={
                   process.env.NEXT_PUBLIC_IMAGEPATH
@@ -222,7 +222,7 @@ const Home = ({ frontmatter }) => {
               />
             </div>
             {/* Content */}
-            <div className={`service-content mt-5 md:mt-0`}>
+            <div className={"service-content mt-5 md:mt-0"}>
               {services?.items.map((item, index) => (
                 <div className="mt-6 ml-4 flex" key={index}>
                   <FetchImage
@@ -253,7 +253,7 @@ const Home = ({ frontmatter }) => {
             ${process.env.NEXT_PUBLIC_IMAGEPATH}${patent.image}
           )`
             : `url(${patent.image})`,
-          backgroundSize: "cover",
+          backgroundSize: 'cover',
         }}      
       >
         <div className="container">
@@ -262,7 +262,7 @@ const Home = ({ frontmatter }) => {
               {markdownify(patent.title)}
             </h2>
           </div>
-          <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', gap: '0 24px', flexWrap: "wrap"}}>
+          <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', gap: '0 24px', flexWrap: 'wrap'}}>
             {patent.items.map((item, i) => (
               <div
                 // className="mt-8 feature-card rounded-xl bg-white p-5 pb-8"
@@ -287,7 +287,7 @@ const Home = ({ frontmatter }) => {
 };
 
 export const getStaticProps = async () => {
-  const homePage = await getListPage("content/_index.md");
+  const homePage = await getListPage('content/_index.md');
   const { frontmatter } = homePage;
   return {
     props: {
