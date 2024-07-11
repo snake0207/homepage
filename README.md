@@ -1,54 +1,50 @@
-[![CI](https://github.com/snake0207/acro2024/actions/workflows/ci.yml/badge.svg)](https://github.com/snake0207/acro2024/actions/workflows/ci.yml)
+[![CI](https://github.com/snake0207/homepage/actions/workflows/ci.yml/badge.svg)](https://github.com/snake0207/homepage/actions/workflows/ci.yml)
 
 ## Key Features
 
 - NextJS 프레임웍 사용
 - 반응형
-- github deploy
+- github auto CI/CD (Action)
 - github의 Custom Domain과 가비아 연결
 
 <!-- installation -->
 
 ## Installation
 
-### Prerequisite
-
 - **Node Installation:** [Install node js](https://nodejs.org/en/download/) [Recommended LTS version]
 
-### Local 환경 설정
-
-IDE 설치 [[VS Code](https://code.visualstudio.com/) recommended] 후 사용할 것을 권장
+- IDE 설치 [[VS Code](https://code.visualstudio.com/) recommended] 후 사용할 것을 권장
 
 - Configuration setup
 
 ```
     1. git init .
-    2. git remote add origin https://github.com/snake0207/homepage.git
-    3. git pull origin master
-    4. npm install next@latest react@latest react-dom@latest
-    5. npm install gh-pages -D
+    2. git remote add homepage https://github.com/snake0207/homepage.git
+    3. git checkout -b [new_branch명]
+    4. git pull homepage 2024_home
+    5. npm install
 ```
 
-- Run locally
+## Build & Deploy
+
+### 수동 배포
+
+github gh-pages branch로 설정(package.json)
 
 ```
-npm run dev
+    1. npm run build
+    2. npm run deploy
 ```
 
-After that, it will open up a preview of the template in your default browser, watch for changes to source files, and live-reload the browser when changes are saved.
+### 자동 배포
 
-## Production Build
-
-After finishing all the customization, you can create a production build by running this command.
+github branch의 Action(.github/worksflows/ci.yml)으로 자동화
 
 ```
-npm run build
-npm run deploy
+    1. git add .
+    2. git commit -m "deploy ~"
+    3. git push -u homepage [원격브랜치명]
 ```
-
-## Auto Build & Deploy
-
-https://github.com/snake0207/acro2024.git 의 branch(2024_home)의 .github/workflows의 ci.yml파일을 이용하여 자동 배포를 수행
 
 <!-- licence -->
 
