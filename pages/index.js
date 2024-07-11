@@ -11,7 +11,7 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/effect-coverflow';
 import { getListPage } from "../lib/contentParser";
 import { useEffect, useRef, useState } from "react";
-import Image from 'next/image';
+import { FetchImage } from '@lib/utils/imageDom';
 
 const Home = ({ frontmatter }) => {
   const { banner, feature, works, services, patent } = frontmatter;
@@ -182,7 +182,7 @@ const Home = ({ frontmatter }) => {
                     alignItems: 'center',
                   }}
                 >
-                  <img
+                  <FetchImage
                     src={
                       process.env.NEXT_PUBLIC_IMAGEPATH
                         ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${slide}`
@@ -210,7 +210,7 @@ const Home = ({ frontmatter }) => {
           <div className="mt-12 gap-8 gap-x-16 md:grid md:grid-cols-2">
             {/* Image */}
             <div className={`items-center service-content mt-5 md:mt-0`}>
-              <img
+              <FetchImage
                 src={
                   process.env.NEXT_PUBLIC_IMAGEPATH
                     ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.image}`
@@ -225,7 +225,7 @@ const Home = ({ frontmatter }) => {
             <div className={`service-content mt-5 md:mt-0`}>
               {services?.items.map((item, index) => (
                 <div className="mt-6 ml-4 flex" key={index}>
-                  <img
+                  <FetchImage
                     className="mr-4"
                     src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.check}` : `${services.check}`}
                     width={24}
@@ -270,7 +270,7 @@ const Home = ({ frontmatter }) => {
                 key={`feature-${i}`}
               >
                 <div>
-                  <img
+                  <FetchImage
                       src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item}` : `${item}`}
                       width={300}
                       height={600}
