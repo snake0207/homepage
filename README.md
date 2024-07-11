@@ -1,4 +1,4 @@
-[![CI](https://github.com/snake0207/acro2024/actions/workflows/ci.yml/badge.svg)](https://github.com/snake0207/acro2024/actions/workflows/ci.yml)
+[![CI](https://github.com/snake0207/homepage/actions/workflows/ci.yml/badge.svg)](https://github.com/snake0207/homepage/actions/workflows/ci.yml)
 
 ## Key Features
 
