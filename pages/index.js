@@ -1,17 +1,17 @@
-import config from '@config/config.json';
-import Base from '@layouts/Baseof';
-import { markdownify } from '@lib/utils/textConverter';
-import Link from 'next/link';
-import { Autoplay, EffectCards, EffectCube } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import config from "@config/config.json";
+import Base from "@layouts/Baseof";
+import { markdownify } from "@lib/utils/textConverter";
+import Link from "next/link";
+import { Autoplay, EffectCards, EffectCube } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 // import 'swiper/swiper.min.css';
-import 'swiper/css';
-import 'swiper/css/effect-cards';
-import 'swiper/css/effect-cube';
-import 'swiper/css/effect-coverflow';
-import { getListPage } from '../lib/contentParser';
-import { useEffect, useRef, useState } from 'react';
-import { FetchImage } from '@lib/utils/imageDom';
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "swiper/css/effect-cube";
+import "swiper/css/effect-coverflow";
+import { getListPage } from "../lib/contentParser";
+import { useEffect, useRef, useState } from "react";
+import { FetchImage } from "@lib/utils/imageDom";
 
 const Home = ({ frontmatter }) => {
   const { banner, feature, works, services, patent } = frontmatter;
@@ -19,37 +19,45 @@ const Home = ({ frontmatter }) => {
   const [swiperSize, setSwiperSize] = useState({ width: 0, height: 0 });
   const swiperRef = useRef(null);
   const [slidesPerView, setSlidesPerView] = useState(1);
-  const [slideEffect, setSlideEffect] = useState({ 
-    effect: 'card',
+  const [slideEffect, setSlideEffect] = useState({
+    effect: "card",
     module: EffectCards,
-    data: []});
+    data: [],
+  });
 
   useEffect(() => {
     const handleResize = () => {
       // console.log('window : ', window.innerWidth);
       if (window.innerWidth >= 768) {
-        setSlidesPerView('auto')
-        setSlideEffect({effect: 'cards', module: EffectCards, data: works?.pc_images});
-      }
-      else {
-        setSlidesPerView(1)
-        setSlideEffect({effect: 'cards', module: EffectCards, data: works?.mob_images});
+        setSlidesPerView("auto");
+        setSlideEffect({
+          effect: "cards",
+          module: EffectCards,
+          data: works?.pc_images,
+        });
+      } else {
+        setSlidesPerView(1);
+        setSlideEffect({
+          effect: "cards",
+          module: EffectCards,
+          data: works?.mob_images,
+        });
       }
 
       // Swiper 크기 설정
       if (swiperRef.current) {
         setSwiperSize({
           width: swiperRef.current.clientWidth * 0.5,
-          height: swiperRef.current.clientHeight * 0.6
-        })
+          height: swiperRef.current.clientHeight * 0.6,
+        });
       }
     };
 
     handleResize(); // 초기 렌더링 시 실행
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // 클린업 함수로 이벤트 리스너 제거
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [works?.pc_images, works?.mob_images]);
 
   return (
@@ -64,7 +72,7 @@ const Home = ({ frontmatter }) => {
             ${process.env.NEXT_PUBLIC_IMAGEPATH}${banner.image}
           )`
             : `url(${banner.image})`,
-          backgroundSize: 'cover',
+          backgroundSize: "cover",
         }}
       >
         <div className="container">
@@ -73,10 +81,22 @@ const Home = ({ frontmatter }) => {
               <p className="text-white">&quot;{banner.title}&quot;</p>
 
               <div>
-                <h2 className="mt-8 text-white" style={{ fontSize: slidesPerView === 1 ? '28px' : '44px', wordBreak: 'keep-all' }}>
+                <h2
+                  className="mt-8 text-white"
+                  style={{
+                    fontSize: slidesPerView === 1 ? "28px" : "44px",
+                    wordBreak: "keep-all",
+                  }}
+                >
                   {markdownify(banner.content)}
                 </h2>
-                <h2 className="mt-2 text-white" style={{ fontSize: slidesPerView === 1 ? '28px' : '44px', wordBreak: 'keep-all' }}>
+                <h2
+                  className="mt-2 text-white"
+                  style={{
+                    fontSize: slidesPerView === 1 ? "28px" : "44px",
+                    wordBreak: "keep-all",
+                  }}
+                >
                   {markdownify(banner.subContent)}
                 </h2>
               </div>
@@ -126,7 +146,7 @@ const Home = ({ frontmatter }) => {
                 key={`feature-${i}`}
               >
                 <div className="mt-4">
-                  {markdownify(item.name, 'h5', 'h6')}
+                  {markdownify(item.name, "h5", "h6")}
                   <h2 className="mt-3">{item.content}</h2>
                 </div>
               </div>
@@ -146,7 +166,7 @@ const Home = ({ frontmatter }) => {
             ${process.env.NEXT_PUBLIC_IMAGEPATH}${works.image}
           )`
             : `url(${works.image})`,
-          backgroundSize: 'cover',
+          backgroundSize: "cover",
         }}
       >
         <div className="container">
@@ -158,7 +178,7 @@ const Home = ({ frontmatter }) => {
         </div>
 
         <div ref={swiperRef} className="mt-12">
-            { slideEffect.data.length > 0 && (
+          {slideEffect.data.length > 0 && (
             <Swiper
               loop={true}
               slidesPerView={"auto"}
@@ -173,13 +193,13 @@ const Home = ({ frontmatter }) => {
                 delay: 3000,
               }}
             >
-              { 
-                slideEffect.data.map((slide, index) => (
-                <SwiperSlide key={index}
+              {slideEffect.data.map((slide, index) => (
+                <SwiperSlide
+                  key={index}
                   style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
                   <FetchImage
@@ -195,8 +215,7 @@ const Home = ({ frontmatter }) => {
                 </SwiperSlide>
               ))}
             </Swiper>
-            )
-            }
+          )}
         </div>
       </section>
 
@@ -209,7 +228,7 @@ const Home = ({ frontmatter }) => {
 
           <div className="mt-12 gap-8 gap-x-16 md:grid md:grid-cols-2">
             {/* Image */}
-            <div className={"items-center service-content mt-5 md:mt-0"}>
+            <div className={"service-content mt-5 items-center md:mt-0"}>
               <FetchImage
                 src={
                   process.env.NEXT_PUBLIC_IMAGEPATH
@@ -224,37 +243,45 @@ const Home = ({ frontmatter }) => {
             {/* Content */}
             <div className={"service-content mt-5 md:mt-0"}>
               {services?.items.map((item, index) => (
-                <div className="mt-6 ml-4 flex" key={index}>
+                <div className="ml-4 mt-6 flex" key={index}>
                   <FetchImage
                     className="mr-4"
-                    src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.check}` : `${services.check}`}
+                    src={
+                      process.env.NEXT_PUBLIC_IMAGEPATH
+                        ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.check}`
+                        : `${services.check}`
+                    }
                     width={24}
                     height={24}
                     alt="설명 강조"
                   />
                   {/* {markdownify(item.name, "h4", "h5")} */}
-                    {item.emphasis 
-                      ? <h5><em>{item.name}</em></h5>
-                      : <h5 className="text-text">{item.name}</h5>
-                    }
+                  {item.emphasis ? (
+                    <h5>
+                      <em>{item.name}</em>
+                    </h5>
+                  ) : (
+                    <h5 className="text-text">{item.name}</h5>
+                  )}
                 </div>
-               ))}
+              ))}
             </div>
           </div>
-          
         </div>
       </section>
 
       {/* Patent */}
-      <section id="patent" className="section bg-theme-light"
+      <section
+        id="patent"
+        className="section bg-theme-light"
         style={{
           backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
             ? `url(
             ${process.env.NEXT_PUBLIC_IMAGEPATH}${patent.image}
           )`
             : `url(${patent.image})`,
-          backgroundSize: 'cover',
-        }}      
+          backgroundSize: "cover",
+        }}
       >
         <div className="container">
           <div>
@@ -262,7 +289,15 @@ const Home = ({ frontmatter }) => {
               {markdownify(patent.title)}
             </h2>
           </div>
-          <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', gap: '0 24px', flexWrap: 'wrap'}}>
+          <div
+            className="mt-12"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "0 24px",
+              flexWrap: "wrap",
+            }}
+          >
             {patent.items.map((item, i) => (
               <div
                 // className="mt-8 feature-card rounded-xl bg-white p-5 pb-8"
@@ -271,11 +306,15 @@ const Home = ({ frontmatter }) => {
               >
                 <div>
                   <FetchImage
-                      src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item}` : `${item}`}
-                      width={300}
-                      height={600}
-                      alt="보유 특허"
-                    />
+                    src={
+                      process.env.NEXT_PUBLIC_IMAGEPATH
+                        ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item}`
+                        : `${item}`
+                    }
+                    width={300}
+                    height={600}
+                    alt="보유 특허"
+                  />
                 </div>
               </div>
             ))}
@@ -287,7 +326,7 @@ const Home = ({ frontmatter }) => {
 };
 
 export const getStaticProps = async () => {
-  const homePage = await getListPage('content/_index.md');
+  const homePage = await getListPage("content/_index.md");
   const { frontmatter } = homePage;
   return {
     props: {

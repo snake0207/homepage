@@ -63,7 +63,7 @@ services:
       emphasis: true
     - name: "자연어 처리(NLP)"
       emphasis: true
-    - name: "위치측위 솔루션, CBS활용 Push마케팅"
+    - name: "LBS 솔루션, CBS Push마케팅"
       emphasis: true
 
 # service
