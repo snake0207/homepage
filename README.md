@@ -4,7 +4,7 @@
 
 - NextJS 프레임웍 사용
 - 반응형
-- github auto CI/CD (Action)
+- github Action (auto CI/CD)
 - github의 Custom Domain과 가비아 연결
 
 <!-- installation -->
