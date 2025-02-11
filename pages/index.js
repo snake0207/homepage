@@ -2,7 +2,14 @@ import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
-import { Autoplay, EffectCards, EffectCube } from "swiper";
+import {
+  Autoplay,
+  EffectCards,
+  EffectCoverflow,
+  EffectCube,
+  EffectFade,
+  EffectFlip,
+} from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import 'swiper/swiper.min.css';
 import "swiper/css";
@@ -20,7 +27,7 @@ const Home = ({ frontmatter }) => {
   const swiperRef = useRef(null);
   const [slidesPerView, setSlidesPerView] = useState(1);
   const [slideEffect, setSlideEffect] = useState({
-    effect: "card",
+    effect: "cards",
     module: EffectCards,
     data: [],
   });
@@ -47,8 +54,8 @@ const Home = ({ frontmatter }) => {
       // Swiper 크기 설정
       if (swiperRef.current) {
         setSwiperSize({
-          width: swiperRef.current.clientWidth * 0.5,
-          height: swiperRef.current.clientHeight * 0.6,
+          width: swiperRef.current.clientWidth * 0.3,
+          height: swiperRef.current.clientHeight * 0.4,
         });
       }
     };
@@ -236,8 +243,8 @@ const Home = ({ frontmatter }) => {
                     : `${services.image}`
                 }
                 alt="tech cloud "
-                width={700}
-                height={400}
+                width={800}
+                height={500}
               />
             </div>
             {/* Content */}
@@ -289,19 +296,10 @@ const Home = ({ frontmatter }) => {
               {markdownify(patent.title)}
             </h2>
           </div>
-          <div
-            className="mt-12"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "0 24px",
-              flexWrap: "wrap",
-            }}
-          >
+          <div className="mt-12 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
             {patent.items.map((item, i) => (
               <div
-                // className="mt-8 feature-card rounded-xl bg-white p-5 pb-8"
-                className="mt-8 rounded-xl bg-white p-5 pb-8"
+                className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
                 key={`feature-${i}`}
               >
                 <div>
@@ -311,9 +309,9 @@ const Home = ({ frontmatter }) => {
                         ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item}`
                         : `${item}`
                     }
-                    width={300}
-                    height={600}
-                    alt="보유 특허"
+                    width={320}
+                    height={400}
+                    alt="특허 및 수상내역"
                   />
                 </div>
               </div>

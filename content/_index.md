@@ -20,28 +20,29 @@ feature:
     - name: "YEARS OF EXPERIENCE"
       content: "+15"
     - name: "PROJECT DONE"
-      content: "+80"
+      content: "+94"
     - name: "RESOURCES"
       content: "+110"
     - name: "DEVELOPER RATIO"
-      content: "+92%"
+      content: "+96%"
 
 # works
 works:
   title: "Recently Our Works"
   image: /images/2024_slide_back.svg
   mob_images:
-    - "/images/mob_blackvue.svg"
+    - "/images/mob_ever.svg"
     - "/images/mob_dgb.svg"
-    - "/images/mob_reno.svg"
     - "/images/mob_hd.svg"
+    - "/images/mob_blackvue.svg"
+    - "/images/mob_reno.svg"
   pc_images:
-    - "/images/pc_hd.svg"
     - "/images/pc_dgb.svg"
     - "/images/pc_hds.svg"
     - "/images/pc_blackvue.svg"
-    - "/images/pc_drive.svg"
     - "/images/pc_ktbiz.svg"
+    - "/images/pc_drive.svg"
+    - "/images/pc_hd.svg"
   button:
     enable: false
     label: Check it out
@@ -57,11 +58,9 @@ services:
       emphasis: true
     - name: "금융사 고객 채널"
       emphasis: true
-    - name: "DevOps, MSA, Cloud"
+    - name: "DevOps, MSA, AWS, MS Azure"
       emphasis: true
-    - name: "백엔드, 웹, 모바일 어플리케이션"
-      emphasis: true
-    - name: "자연어 처리(NLP)"
+    - name: "백앤드, 반응형 웹, 모바일 앱"
       emphasis: true
     - name: "LBS 솔루션, CBS Push마케팅"
       emphasis: true
@@ -71,7 +70,8 @@ patent:
   title: "Technology Patents & Awards"
   image: /images/2024_strengths_back.svg
   items:
+    - "/images/kt_partner.svg"
+    - "/images/award.svg"
     - "/images/patent_push.svg"
     - "/images/patent_lbs.svg"
-    - "/images/award.svg"
 ---
