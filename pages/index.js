@@ -2,26 +2,17 @@ import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
-import {
-  Autoplay,
-  EffectCards,
-  EffectCoverflow,
-  EffectCube,
-  EffectFade,
-  EffectFlip,
-} from "swiper";
+import { Autoplay, EffectCards } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import 'swiper/swiper.min.css';
 import "swiper/css";
 import "swiper/css/effect-cards";
-import "swiper/css/effect-cube";
-import "swiper/css/effect-coverflow";
 import { getListPage } from "../lib/contentParser";
 import { useEffect, useRef, useState } from "react";
 import { FetchImage } from "@lib/utils/imageDom";
 
 const Home = ({ frontmatter }) => {
-  const { banner, feature, works, services, patent } = frontmatter;
+  const { banner, feature, works, services, patent, solutions } = frontmatter;
   const { title } = config.site;
   const [swiperSize, setSwiperSize] = useState({ width: 0, height: 0 });
   const swiperRef = useRef(null);
@@ -31,6 +22,10 @@ const Home = ({ frontmatter }) => {
     module: EffectCards,
     data: [],
   });
+  const styleTitle = {
+    fontSize: slidesPerView === 1 ? "42px" : "62px",
+    wordBreak: "keep-all",
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,8 +49,8 @@ const Home = ({ frontmatter }) => {
       // Swiper 크기 설정
       if (swiperRef.current) {
         setSwiperSize({
-          width: swiperRef.current.clientWidth * 0.3,
-          height: swiperRef.current.clientHeight * 0.4,
+          width: swiperRef.current.clientWidth * 0.4,
+          height: swiperRef.current.clientHeight * 0.5,
         });
       }
     };
@@ -76,40 +71,27 @@ const Home = ({ frontmatter }) => {
         style={{
           backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
             ? `url(
-            ${process.env.NEXT_PUBLIC_IMAGEPATH}${banner.image}
+            ${process.env.NEXT_PUBLIC_IMAGEPATH}${banner?.background}
           )`
-            : `url(${banner.image})`,
+            : `url(${banner?.background})`,
           backgroundSize: "cover",
         }}
       >
         <div className="container">
           <div className="row text-center">
             <div className="mx-auto text-left md:col-10">
-              <p className="text-white">&quot;{banner.title}&quot;</p>
-
               <div>
-                <h2
-                  className="mt-8 text-white"
-                  style={{
-                    fontSize: slidesPerView === 1 ? "28px" : "44px",
-                    wordBreak: "keep-all",
-                  }}
-                >
+                <h2 className="mt-2 text-white" style={styleTitle}>
                   {markdownify(banner.content)}
                 </h2>
-                <h2
-                  className="mt-2 text-white"
-                  style={{
-                    fontSize: slidesPerView === 1 ? "28px" : "44px",
-                    wordBreak: "keep-all",
-                  }}
-                >
+                <h2 className="mt-2 text-white" style={styleTitle}>
                   {markdownify(banner.subContent)}
                 </h2>
               </div>
+
               {banner.button.enable && (
                 <Link
-                  className="btn btn-primary mr-4 mt-24"
+                  className="btn btn-primary mr-4 mt-16 md:mt-24"
                   href={
                     process.env.NEXT_PUBLIC_DOCPATH
                       ? `${process.env.NEXT_PUBLIC_DOCPATH}${banner.button.link}`
@@ -118,21 +100,25 @@ const Home = ({ frontmatter }) => {
                   rel={banner.button.rel}
                   target="_blank"
                 >
-                  {banner.button.label}
+                  {slidesPerView === 1 ? (
+                    <h5>{banner.button.label}</h5>
+                  ) : (
+                    <h4>{banner.button.label}</h4>
+                  )}
                 </Link>
               )}
               {banner.recruit.enable && (
                 <Link
-                  className="btn btn-outline-primary mt-4"
-                  href={
-                    process.env.NEXT_PUBLIC_IMAGEPATH
-                      ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${banner.recruit.link}`
-                      : `${banner.recruit.link}`
-                  }
+                  className="btn btn-outline-primary"
+                  href={process.env.NEXT_PUBLIC_RECRUITURL}
                   rel={banner.recruit.rel}
                   target="_blank"
                 >
-                  {banner.recruit.label}
+                  {slidesPerView === 1 ? (
+                    <h5 className="text-primary">{banner.recruit.label}</h5>
+                  ) : (
+                    <h4 className="text-primary">{banner.recruit.label}</h4>
+                  )}
                 </Link>
               )}
             </div>
@@ -141,20 +127,23 @@ const Home = ({ frontmatter }) => {
       </section>
 
       {/* Features */}
-      <section id="about" className="section bg-theme-light">
+      <section id="about" className="section">
         <div className="container">
           <div className="text-center">
-            <h2>{markdownify(feature.title)}</h2>
+            <h2 className="mt-2" style={styleTitle}>
+              {markdownify(feature.title)}
+            </h2>
           </div>
-          <div className="mt-12 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div className="mt-16 grid gap-x-6 gap-y-6 sm:grid-cols-2 md:mt-24 lg:grid-cols-4">
             {feature.items.map((item, i) => (
               <div
-                className="feature-card rounded-xl bg-white p-5 pb-8 text-center"
+                className="feature-card rounded-xl bg-white p-2 pb-8 text-center"
                 key={`feature-${i}`}
               >
                 <div className="mt-4">
-                  {markdownify(item.name, "h5", "h6")}
-                  <h2 className="mt-3">{item.content}</h2>
+                  {markdownify(item.name, "h4", "h5")}
+                  <h2 className="mt-6 text-5xl">{markdownify(item.content)}</h2>
                 </div>
               </div>
             ))}
@@ -162,29 +151,29 @@ const Home = ({ frontmatter }) => {
         </div>
       </section>
 
-      {/* services */}
+      {/* works */}
       <section
-        id={"works"}
-        key={"work"}
-        className={"section"}
+        id="works"
+        key="work"
+        className="section"
         style={{
           backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
             ? `url(
-            ${process.env.NEXT_PUBLIC_IMAGEPATH}${works.image}
+            ${process.env.NEXT_PUBLIC_IMAGEPATH}${works.background}
           )`
-            : `url(${works.image})`,
+            : `url(${works.background})`,
           backgroundSize: "cover",
         }}
       >
         <div className="container">
-          <div className={"service-content"}>
-            <h2 className="text-center font-bold leading-[40px] text-white">
-              {works?.title}
+          <div className={"service-content text-center"}>
+            <h2 className="mt-2  text-white" style={styleTitle}>
+              {markdownify(works?.title)}
             </h2>
           </div>
         </div>
 
-        <div ref={swiperRef} className="mt-12">
+        <div ref={swiperRef} className="mt-16 md:mt-24">
           {slideEffect.data.length > 0 && (
             <Swiper
               loop={true}
@@ -194,7 +183,6 @@ const Home = ({ frontmatter }) => {
               effect={slideEffect.effect}
               cardsEffect={{
                 slideShadows: false,
-                rotate: true,
               }}
               autoplay={{
                 delay: 3000,
@@ -226,53 +214,85 @@ const Home = ({ frontmatter }) => {
         </div>
       </section>
 
-      {/* services */}
-      <section id="services" className="section">
+      {/* solutions */}
+      <section
+        id="services"
+        className="section"
+        style={{
+          backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
+            ? `url(
+            ${process.env.NEXT_PUBLIC_IMAGEPATH}${solutions?.background}
+          )`
+            : `url(${solutions?.background})`,
+          backgroundSize: "cover",
+        }}
+      >
         <div className="container">
           <div className="text-center">
-            <h2>{markdownify(services.title)}</h2>
+            <h2 className="mt-2" style={styleTitle}>
+              {markdownify(solutions.title)}
+            </h2>
           </div>
 
-          <div className="mt-12 gap-8 gap-x-16 md:grid md:grid-cols-2">
-            {/* Image */}
-            <div className={"service-content mt-5 items-center md:mt-0"}>
-              <FetchImage
-                src={
-                  process.env.NEXT_PUBLIC_IMAGEPATH
-                    ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.image}`
-                    : `${services.image}`
-                }
-                alt="tech cloud "
-                width={800}
-                height={500}
-              />
-            </div>
-            {/* Content */}
-            <div className={"service-content mt-5 md:mt-0"}>
-              {services?.items.map((item, index) => (
-                <div className="ml-4 mt-6 flex" key={index}>
+          <div className="mt-16 md:mt-24">
+            {solutions?.items.map((item, i) => (
+              <div key={`solutions-${i}`} className="mb-4 p-4 md:mb-6">
+                <p className="mb-2 text-2xl font-semibold text-red-500 md:text-3xl">
+                  "하나",
+                </p>
+                <h1 className="text-2xl text-gray-400 md:text-4xl">
+                  {item.name}
+                </h1>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* services */}
+      <section
+        id="services"
+        className="section"
+        style={{
+          backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
+            ? `url(
+            ${process.env.NEXT_PUBLIC_IMAGEPATH}${services?.background}
+          )`
+            : `url(${services?.background})`,
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="container">
+          <div className="text-center">
+            <h2 className="mt-2 text-white" style={styleTitle}>
+              {markdownify(services.title)}
+            </h2>
+          </div>
+
+          <div className="mt-16 grid gap-x-8 gap-y-6 sm:grid-cols-1 md:mt-24 md:grid-cols-2">
+            {services?.items.map((item, index) => (
+              <div
+                className="m-4 mb-6 grid sm:grid-cols-2 md:grid-cols-1"
+                key={index}
+              >
+                <div className="flex items-center text-center">
                   <FetchImage
-                    className="mr-4"
+                    className="rounded-3xl"
                     src={
                       process.env.NEXT_PUBLIC_IMAGEPATH
-                        ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${services.check}`
-                        : `${services.check}`
+                        ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item.image}`
+                        : `${item.image}`
                     }
-                    width={24}
-                    height={24}
-                    alt="설명 강조"
+                    alt="제공 서비스 설명"
                   />
-                  {/* {markdownify(item.name, "h4", "h5")} */}
-                  {item.emphasis ? (
-                    <h5>
-                      <em>{item.name}</em>
-                    </h5>
-                  ) : (
-                    <h5 className="text-text">{item.name}</h5>
-                  )}
                 </div>
-              ))}
-            </div>
+                <div className="mt-4 flex items-center justify-center">
+                  <h1 className="text-2xl text-white md:text-4xl">
+                    {markdownify(item.name)}
+                  </h1>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -284,19 +304,19 @@ const Home = ({ frontmatter }) => {
         style={{
           backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
             ? `url(
-            ${process.env.NEXT_PUBLIC_IMAGEPATH}${patent.image}
+            ${process.env.NEXT_PUBLIC_IMAGEPATH}${patent?.image}
           )`
-            : `url(${patent.image})`,
+            : `url(${patent?.image})`,
           backgroundSize: "cover",
         }}
       >
         <div className="container">
           <div>
-            <h2 className="text-center font-bold text-white">
+            <h2 className="mt-2 text-center" style={styleTitle}>
               {markdownify(patent.title)}
             </h2>
           </div>
-          <div className="mt-12 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-x-8 gap-y-6 sm:grid-cols-2 md:mt-24 lg:grid-cols-4">
             {patent.items.map((item, i) => (
               <div
                 className="feature-card rounded-xl bg-white p-5 pb-8 text-center"

@@ -1,9 +1,8 @@
 ---
 banner:
-  title: 최고의 미래
-  content: 사람과 미래가 데이터를 만나
-  subContent: 또다른 현실이 되는 이곳, 함께 시작해 보세요.
-  image: /images/2024_introduce_back.svg
+  content: 사람과 기술이 어우러져
+  subContent: 최고의 미래를 만들어가는 곳
+  background: /images/2024_introduce_back.svg
   button:
     label: "About US"
     link: "/doc/acrofuture.pdf"
@@ -11,11 +10,11 @@ banner:
   recruit:
     label: "Recruit"
     link: "/images/recruit_shalf.png"
-    enable: false
+    enable: true
 
 # feature
 feature:
-  title: What Are Our Strengths
+  title: "24 * 365 하루하루 쌓여가는 이야기"
   items:
     - name: "YEARS OF EXPERIENCE"
       content: "+15"
@@ -28,8 +27,9 @@ feature:
 
 # works
 works:
-  title: "Recently Our Works"
-  image: /images/2024_slide_back.svg
+  title: "어제의 오늘이 있기까지 해온 일들"
+  # title: "What we have achieved through our passion and efforts"
+  background: /images/2024_slide_back.svg
   mob_images:
     - "/images/mob_ever.svg"
     - "/images/mob_dgb.svg"
@@ -48,27 +48,37 @@ works:
     label: Check it out
     link: /contact
 
-# service
-services:
-  title: Services We Can Provide
-  image: /images/services_back.svg
-  check: /images/check_dark.svg
+# solutions
+solutions:
+  # title: "Creating the best value for customers"
+  title: "위치 / 물류 / 지역 Push 솔루션"
+  background: /images/solutions_back.svg
+  image: /images/check_red.svg
   items:
-    - name: "이동통신사 인프라 및 서비스"
-      emphasis: true
-    - name: "금융사 고객 채널"
-      emphasis: true
-    - name: "DevOps, MSA, AWS, MS Azure"
-      emphasis: true
-    - name: "백앤드, 반응형 웹, 모바일 앱"
-      emphasis: true
-    - name: "LBS 솔루션, CBS Push마케팅"
-      emphasis: true
+    - name: "GPS, WiFi 등을 이용한 실내/외 위치확인"
+    - name: "화물차량 배차, 최단경로, 실시간 위치, 정산"
+    - name: "이동통신사 CBS망을 활용한 지역기반 Push 문자 발송"
 
 # service
+services:
+  title: "통신에서 금융까지 주요 사업분야"
+  # title: Creating the best value for customers
+  background: /images/2024_strengths_back.svg
+  check: /images/check_red.svg
+  items:
+    - name: "이동통신 서비스"
+      image: /images/service_tel.svg
+    - name: "글로벌 차량 콘텐츠"
+      image: /images/service_mob.svg
+    - name: "금융 고객채널"
+      image: /images/service_fin.svg
+    - name: "솔루션"
+      image: /images/service_sol.svg
+
+# patent
 patent:
-  title: "Technology Patents & Awards"
-  image: /images/2024_strengths_back.svg
+  title: "기술 특허"
+  # image: /images/2024_strengths_back.svg
   items:
     - "/images/kt_partner.svg"
     - "/images/award.svg"
