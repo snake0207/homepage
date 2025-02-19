@@ -56,8 +56,8 @@ solutions:
   image: /images/check_red.svg
   items:
     - name: "GPS, WiFi 등을 이용한 실내/외 위치확인"
-    - name: "화물차량 배차, 최단경로, 실시간 위치, 정산"
-    - name: "이동통신사 CBS망을 활용한 지역기반 Push 문자 발송"
+    - name: "화물차량 배차, 최단경로, 실시간 위치, 정산 등"
+    - name: "이동통신사 CBS망을 활용한 지역기반 Push  발송"
 
 # service
 services:
@@ -72,7 +72,7 @@ services:
       image: /images/service_mob.svg
     - name: "금융 고객채널"
       image: /images/service_fin.svg
-    - name: "솔루션"
+    - name: "솔루션 플랫폼"
       image: /images/service_sol.svg
 
 # patent

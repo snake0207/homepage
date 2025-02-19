@@ -238,7 +238,7 @@ const Home = ({ frontmatter }) => {
             {solutions?.items.map((item, i) => (
               <div key={`solutions-${i}`} className="mb-4 p-4 md:mb-6">
                 <p className="mb-2 text-2xl font-semibold text-red-500 md:text-3xl">
-                  "하나",
+                  {'"하나"'}
                 </p>
                 <h1 className="text-2xl text-gray-400 md:text-4xl">
                   {item.name}
@@ -284,6 +284,8 @@ const Home = ({ frontmatter }) => {
                         : `${item.image}`
                     }
                     alt="제공 서비스 설명"
+                    width={400}
+                    height={400}
                   />
                 </div>
                 <div className="mt-4 flex items-center justify-center">
