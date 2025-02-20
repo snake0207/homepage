@@ -9,12 +9,16 @@
       "url": "#about"
     },
     {
-      "name": "Work",
-      "url": "#works"
+      "name": "Business",
+      "url": "#business"
     },
     {
-      "name": "Services",
-      "url": "#services"
+      "name": "Solutions",
+      "url": "#solutions"
+    },
+    {
+      "name": "Work",
+      "url": "#works"
     }
   ]
 }

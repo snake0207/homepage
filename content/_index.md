@@ -12,8 +12,8 @@ banner:
     link: "/images/recruit_shalf.png"
     enable: true
 
-# feature
-feature:
+# About
+about:
   title: "24 * 365 하루하루 쌓여가는 이야기"
   items:
     - name: "YEARS OF EXPERIENCE"
@@ -24,6 +24,36 @@ feature:
       content: "+110"
     - name: "DEVELOPER RATIO"
       content: "+96%"
+
+# Business
+business:
+  title: "통신에서 금융까지 주요 사업분야"
+  # title: Creating the best value for customers
+  background: /images/2024_slide_back.svg
+  check: /images/check_red.svg
+  items:
+    - name: "금융 고객채널"
+      image: /images/service_fin.svg
+    - name: "글로벌 차량 콘텐츠"
+      image: /images/service_mob.svg
+    - name: "이동통신 서비스"
+      image: /images/service_tel.svg
+    - name: "솔루션"
+      image: /images/service_sol.svg
+
+# solutions
+solutions:
+  # title: "Creating the best value for customers"
+  title: "위치 / 물류 / 지역 Push 솔루션"
+  # background: /images/solutions_back.svg
+  image: /images/services_back.svg
+  items:
+    - name: "LBS 솔루션"
+      content: "GPS 및 시설정보 이용한 실시간 위치"
+    - name: "카카고"
+      content: "화물차량 배차, 이동경로, Push, 정산"
+    - name: "스마트존캐스트"
+      content: "통신사 CBS망 이용한 지역 Push 발송"
 
 # works
 works:
@@ -47,36 +77,6 @@ works:
     enable: false
     label: Check it out
     link: /contact
-
-# solutions
-solutions:
-  # title: "Creating the best value for customers"
-  title: "위치 / 물류 / 지역 Push 솔루션"
-  # background: /images/solutions_back.svg
-  image: /images/services_back.svg
-  items:
-    - name: "LBS 솔루션"
-      content: "GPS 및 시설정보 이용한 실시간 위치"
-    - name: "카카고"
-      content: "화물차량 배차, 이동경로, Push, 정산"
-    - name: "스마트존캐스트"
-      content: "통신사 CBS망 이용한 지역 Push 발송"
-
-# service
-services:
-  title: "통신에서 금융까지 주요 사업분야"
-  # title: Creating the best value for customers
-  background: /images/2024_slide_back.svg
-  check: /images/check_red.svg
-  items:
-    - name: "금융 고객채널"
-      image: /images/service_fin.svg
-    - name: "글로벌 차량 콘텐츠"
-      image: /images/service_mob.svg
-    - name: "이동통신 서비스"
-      image: /images/service_tel.svg
-    - name: "솔루션"
-      image: /images/service_sol.svg
 
 # patent
 patent:

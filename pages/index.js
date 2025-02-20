@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import { FetchImage } from "@lib/utils/imageDom";
 
 const Home = ({ frontmatter }) => {
-  const { banner, feature, works, services, patent, solutions } = frontmatter;
+  const { banner, about, business, solutions, works,  patent  } = frontmatter;
   const { title } = config.site;
   const [swiperSize, setSwiperSize] = useState({ width: 0, height: 0 });
   const swiperRef = useRef(null);
@@ -126,20 +126,20 @@ const Home = ({ frontmatter }) => {
         </div>
       </section>
 
-      {/* Features */}
+      {/* About */}
       <section id="about" className="section">
         <div className="container">
           <div className="text-center">
             <h2 className="mt-2" style={styleTitle}>
-              {markdownify(feature.title)}
+              {markdownify(about.title)}
             </h2>
           </div>
 
           <div className="mt-16 grid gap-x-6 gap-y-6 sm:grid-cols-2 md:mt-24 lg:grid-cols-4">
-            {feature.items.map((item, i) => (
+            {about.items.map((item, i) => (
               <div
                 className="feature-card rounded-xl bg-white p-2 pb-8 text-center"
-                key={`feature-${i}`}
+                key={`about-${i}`}
               >
                 <div className="mt-4">
                   {markdownify(item.name, "h4", "h5")}
@@ -147,6 +147,113 @@ const Home = ({ frontmatter }) => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Business */}
+      <section
+        id="business"
+        className="section"
+        style={{
+          backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
+            ? `url(
+            ${process.env.NEXT_PUBLIC_IMAGEPATH}${business?.background}
+          )`
+            : `url(${business?.background})`,
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="container">
+          <div className="text-center">
+            <h2 className="mt-2 text-white" style={styleTitle}>
+              {markdownify(business.title)}
+            </h2>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-1 md:mt-24 md:grid-cols-2 md:gap-8">
+            {business?.items.map((item, index) => (
+              <div
+                className="m-4 mb-6 grid grid-cols-1 md:grid-cols-1"
+                key={index}
+              >
+                <div className="flex items-center justify-center">
+                  <FetchImage
+                    className="rounded-3xl"
+                    src={
+                      process.env.NEXT_PUBLIC_IMAGEPATH
+                        ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item.image}`
+                        : `${item.image}`
+                    }
+                    style={{
+                      width: slidesPerView === 1 ? "50%" : "100%",
+                      height: "auto",
+                    }}
+                    alt="제공 서비스 설명"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                  />
+                </div>
+                <div className="mt-6 flex items-center justify-center md:mt-8">
+                  <h1 className="text-3xl text-white md:text-4xl">
+                    {markdownify(item.name)}
+                  </h1>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* solutions */}
+      <section
+        id="solutions"
+        className="section"
+        // style={{
+        //   backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
+        //     ? `url(
+        //     ${process.env.NEXT_PUBLIC_IMAGEPATH}${solutions?.background}
+        //   )`
+        //     : `url(${solutions?.background})`,
+        //   backgroundSize: "cover",
+        // }}
+      >
+        <div className="container">
+          <div className="text-center">
+            <h2 className="mt-2" style={styleTitle}>
+              {markdownify(solutions.title)}
+            </h2>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 gap-8 md:mt-24 md:grid-cols-2">
+            {/* Image */}
+            <div className={"service-content mt-5 flex items-center"}>
+              <FetchImage
+                src={
+                  process.env.NEXT_PUBLIC_IMAGEPATH
+                    ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${solutions?.image}`
+                    : `${solutions?.image}`
+                }
+                alt="보유 솔루션 설명"
+                width={700}
+                height={400}
+              />
+            </div>
+
+            {/* Content  */}
+            <div className="service-content">
+              {solutions?.items.map((item, i) => (
+                <div key={`solutions-${i}`} className="mb-4 p-4 md:mb-6">
+                  <p className="mb-2 text-2xl font-bold text-red-400 md:text-4xl">
+                    {`"${item.name}"`}
+                  </p>
+                  <h1 className=" text-2xl text-gray-400 md:text-3xl">
+                    {item.content}
+                  </h1>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -211,113 +318,6 @@ const Home = ({ frontmatter }) => {
               ))}
             </Swiper>
           )}
-        </div>
-      </section>
-
-      {/* solutions */}
-      <section
-        id="services"
-        className="section"
-        // style={{
-        //   backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
-        //     ? `url(
-        //     ${process.env.NEXT_PUBLIC_IMAGEPATH}${solutions?.background}
-        //   )`
-        //     : `url(${solutions?.background})`,
-        //   backgroundSize: "cover",
-        // }}
-      >
-        <div className="container">
-          <div className="text-center">
-            <h2 className="mt-2" style={styleTitle}>
-              {markdownify(solutions.title)}
-            </h2>
-          </div>
-
-          <div className="mt-16 grid grid-cols-1 gap-8 md:mt-24 md:grid-cols-2">
-            {/* Image */}
-            <div className={"service-content mt-5 flex items-center"}>
-              <FetchImage
-                src={
-                  process.env.NEXT_PUBLIC_IMAGEPATH
-                    ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${solutions?.image}`
-                    : `${solutions?.image}`
-                }
-                alt="보유 솔루션 설명"
-                width={700}
-                height={400}
-              />
-            </div>
-
-            {/* Content  */}
-            <div className="service-content">
-              {solutions?.items.map((item, i) => (
-                <div key={`solutions-${i}`} className="mb-4 p-4 md:mb-6">
-                  <p className="mb-2 text-2xl font-bold text-red-400 md:text-4xl">
-                    {`"${item.name}"`}
-                  </p>
-                  <h1 className=" text-2xl text-gray-400 md:text-3xl">
-                    {item.content}
-                  </h1>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* services */}
-      <section
-        id="services"
-        className="section"
-        style={{
-          backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
-            ? `url(
-            ${process.env.NEXT_PUBLIC_IMAGEPATH}${services?.background}
-          )`
-            : `url(${services?.background})`,
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="container">
-          <div className="text-center">
-            <h2 className="mt-2 text-white" style={styleTitle}>
-              {markdownify(services.title)}
-            </h2>
-          </div>
-
-          <div className="mt-16 grid gap-6 sm:grid-cols-1 md:mt-24 md:grid-cols-2 md:gap-8">
-            {services?.items.map((item, index) => (
-              <div
-                className="m-4 mb-6 grid grid-cols-1 md:grid-cols-1"
-                key={index}
-              >
-                <div className="flex items-center justify-center">
-                  <FetchImage
-                    className="rounded-3xl"
-                    src={
-                      process.env.NEXT_PUBLIC_IMAGEPATH
-                        ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item.image}`
-                        : `${item.image}`
-                    }
-                    style={{
-                      width: slidesPerView === 1 ? "50%" : "100%",
-                      height: "auto",
-                    }}
-                    alt="제공 서비스 설명"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                  />
-                </div>
-                <div className="mt-6 flex items-center justify-center md:mt-8">
-                  <h1 className="text-3xl text-white md:text-4xl">
-                    {markdownify(item.name)}
-                  </h1>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
