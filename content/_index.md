@@ -29,7 +29,7 @@ feature:
 works:
   title: "어제의 오늘이 있기까지 해온 일들"
   # title: "What we have achieved through our passion and efforts"
-  background: /images/2024_slide_back.svg
+  background: /images/2024_strengths_back.svg
   mob_images:
     - "/images/mob_ever.svg"
     - "/images/mob_dgb.svg"
@@ -52,27 +52,30 @@ works:
 solutions:
   # title: "Creating the best value for customers"
   title: "위치 / 물류 / 지역 Push 솔루션"
-  background: /images/solutions_back.svg
-  image: /images/check_red.svg
+  # background: /images/solutions_back.svg
+  image: /images/services_back.svg
   items:
-    - name: "GPS, WiFi 등을 이용한 실내/외 위치확인"
-    - name: "화물차량 배차, 최단경로, 실시간 위치, 정산 등"
-    - name: "이동통신사 CBS망을 활용한 지역기반 Push  발송"
+    - name: "LBS 솔루션"
+      content: "GPS 및 시설정보 이용한 실시간 위치"
+    - name: "카카고"
+      content: "화물차량 배차, 이동경로, Push, 정산"
+    - name: "스마트존캐스트"
+      content: "통신사 CBS망 이용한 지역 Push 발송"
 
 # service
 services:
   title: "통신에서 금융까지 주요 사업분야"
   # title: Creating the best value for customers
-  background: /images/2024_strengths_back.svg
+  background: /images/2024_slide_back.svg
   check: /images/check_red.svg
   items:
-    - name: "이동통신 서비스"
-      image: /images/service_tel.svg
     - name: "글로벌 차량 콘텐츠"
       image: /images/service_mob.svg
     - name: "금융 고객채널"
       image: /images/service_fin.svg
-    - name: "솔루션 플랫폼"
+    - name: "이동통신 서비스"
+      image: /images/service_tel.svg
+    - name: "솔루션"
       image: /images/service_sol.svg
 
 # patent

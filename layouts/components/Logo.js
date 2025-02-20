@@ -1,5 +1,5 @@
 import config from "@config/config.json";
-import { FetchImage } from '@lib/utils/imageDom';
+import { FetchImage } from "@lib/utils/imageDom";
 import Link from "next/link";
 
 const Logo = ({ src }) => {
@@ -20,7 +20,11 @@ const Logo = ({ src }) => {
         <FetchImage
           width={logo_width.replace("px", "") * 2}
           height={logo_height.replace("px", "") * 2}
-          src={process.env.NEXT_PUBLIC_IMAGEPATH ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${src}` : logo}
+          src={
+            process.env.NEXT_PUBLIC_IMAGEPATH
+              ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${src}`
+              : logo
+          }
           alt={title}
         />
       ) : logo_text ? (

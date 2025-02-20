@@ -12,8 +12,8 @@ const Footer = () => {
         <div className="row">
           {/* social icons */}
           <div className="sm:col-12 lg:col-12 md:text-2xl">
-            {markdownify(footer_content.addr, "p", "mt-3 mb-2")}
-            {markdownify(footer_content.contact, "p", "mb-6")}
+            {markdownify(footer_content.addr, "p", "mt-3 mb-2 text-gray-400")}
+            {markdownify(footer_content.contact, "p", "mb-6 text-gray-400")}
             <Social source={social} className="social-icons mb-8" />
           </div>
         </div>
