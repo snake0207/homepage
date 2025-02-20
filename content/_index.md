@@ -69,10 +69,10 @@ services:
   background: /images/2024_slide_back.svg
   check: /images/check_red.svg
   items:
-    - name: "글로벌 차량 콘텐츠"
-      image: /images/service_mob.svg
     - name: "금융 고객채널"
       image: /images/service_fin.svg
+    - name: "글로벌 차량 콘텐츠"
+      image: /images/service_mob.svg
     - name: "이동통신 서비스"
       image: /images/service_tel.svg
     - name: "솔루션"
