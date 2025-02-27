@@ -4,11 +4,11 @@ banner:
   subContent: 최고의 미래를 만들어가는 곳
   background: /images/2024_introduce_back.svg
   button:
-    label: "소개합니다"
+    label: "About us"
     link: "/doc/acrofuture.pdf"
     enable: true
   recruit:
-    label: "인재 채용"
+    label: "Recruit"
     link: "/images/recruit_shalf.png"
     enable: true
 
