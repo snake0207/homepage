@@ -20,7 +20,7 @@
 ```
     1. git init .
     2. git remote add homepage https://github.com/snake0207/homepage.git
-    3. git checkout -b [new_branch명]
+    3. git checkout -b [new_branch명:2024_home]
     4. git pull homepage 2024_home
     5. npm install
 ```

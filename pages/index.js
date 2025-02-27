@@ -234,10 +234,15 @@ const Home = ({ frontmatter }) => {
             {/* Content  */}
             {solutions?.items.map((item, i) => (
               <div
-                className="rounded-xl p-4 pb-16 pt-16 shadow"
+                className="rounded-xl p-4 pb-16 pt-8 shadow"
                 key={`solutions-${i}`}
                 style={{ border: "1px solid #ddd" }}
               >
+                <div className={"mb-8 flex items-center justify-center"}>
+                  <h1 className="mb-4 text-2xl font-bold italic">
+                    {`"${item.title}"`}
+                  </h1>
+                </div>
                 <div className={"flex items-center justify-center"}>
                   <FetchImage
                     src={
@@ -253,8 +258,8 @@ const Home = ({ frontmatter }) => {
                   />
                 </div>
                 <div className="mt-20 grid grid-cols-1 text-center">
-                  <h1 className="mb-4 text-2xl font-bold text-gray-400">
-                    {`"${item.name}"`}
+                  <h1 className="mb-6 text-2xl font-bold text-gray-400 underline">
+                    {`${item.name}`}
                   </h1>
                   <h2 className="mb-1 text-xl sm:text-3xl md:text-2xl">
                     {item?.content_1}

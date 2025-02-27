@@ -44,20 +44,23 @@ business:
 
 # solutions
 solutions:
-  title: "LBS / Logistics / Smart Zone Cast"
+  title: "LBS / Logistics / Zone-based Push"
   # title: "위치 / 물류 / 지역 Push 솔루션"
   # background: /images/solutions_back.svg
   image: /images/services_back.svg
   items:
     - name: "김OO, 종각역 30m내"
+      title: "AcTrack"
       image: /images/solution_lbs.svg
       content_1: "GPS, WiFi로 정확하게!"
       content_2: "실시간 위치 추적 서비스"
     - name: "빠르게, 정확하게"
+      title: "Cacago"
       image: /images/solution_cacago.svg
       content_1: "복잡한 화물관리 그만,"
       content_2: "최적 경로로 비용 절감!"
     - name: "OO 강남점, 13:30 Sale!"
+      title: "Smart Zone Cast"
       image: /images/solution_cbs.svg
       content_1: "정확한 타이밍에 딱!"
       content_2: "실시간 지역 발송 메시지"
