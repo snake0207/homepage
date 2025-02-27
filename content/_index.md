@@ -4,17 +4,18 @@ banner:
   subContent: 최고의 미래를 만들어가는 곳
   background: /images/2024_introduce_back.svg
   button:
-    label: "About US"
+    label: "소개합니다"
     link: "/doc/acrofuture.pdf"
     enable: true
   recruit:
-    label: "Recruit"
+    label: "인재 채용"
     link: "/images/recruit_shalf.png"
     enable: true
 
 # About
 about:
-  title: "24 * 365 하루하루 쌓여가는 이야기"
+  title: "24 * 365 = Our story continues"
+  # title: "24*365 끊임없이 이어지는 이야기"
   items:
     - name: "YEARS OF EXPERIENCE"
       content: "+15"
@@ -27,8 +28,8 @@ about:
 
 # Business
 business:
-  title: "통신에서 금융까지 주요 사업분야"
-  # title: Creating the best value for customers
+  # title: "통신부터 금융까지 모든 분야를 아우르는"
+  title: Creating the best value for customers
   background: /images/2024_slide_back.svg
   check: /images/check_red.svg
   items:
@@ -43,22 +44,28 @@ business:
 
 # solutions
 solutions:
-  # title: "Creating the best value for customers"
-  title: "위치 / 물류 / 지역 Push 솔루션"
+  title: "LBS / Logistics / Smart Zone Cast"
+  # title: "위치 / 물류 / 지역 Push 솔루션"
   # background: /images/solutions_back.svg
   image: /images/services_back.svg
   items:
-    - name: "LBS 솔루션"
-      content: "GPS 및 시설정보 이용한 실시간 위치"
-    - name: "카카고"
-      content: "화물차량 배차, 이동경로, Push, 정산"
-    - name: "스마트존캐스트"
-      content: "통신사 CBS망 이용한 지역 Push 발송"
+    - name: "김OO, 종각역 30m내"
+      image: /images/solution_lbs.svg
+      content_1: "GPS, WiFi로 정확하게!"
+      content_2: "실시간 위치 추적 서비스"
+    - name: "빠르게, 정확하게"
+      image: /images/solution_cacago.svg
+      content_1: "복잡한 화물관리 그만,"
+      content_2: "최적 경로로 비용 절감!"
+    - name: "OO 강남점, 13:30 Sale!"
+      image: /images/solution_cbs.svg
+      content_1: "정확한 타이밍에 딱!"
+      content_2: "실시간 지역 발송 메시지"
 
 # works
 works:
-  title: "어제의 오늘이 있기까지 해온 일들"
-  # title: "What we have achieved through our passion and efforts"
+  # title: "어제의 오늘이 있기까지 해온 일들"
+  title: "Goal + Time + Passion = Done !!!"
   background: /images/2024_strengths_back.svg
   mob_images:
     - "/images/mob_ever.svg"
@@ -73,14 +80,10 @@ works:
     - "/images/pc_ktbiz.svg"
     - "/images/pc_drive.svg"
     - "/images/pc_hd.svg"
-  button:
-    enable: false
-    label: Check it out
-    link: /contact
 
 # patent
 patent:
-  title: "기술 특허"
+  title: "Certificate of Patent & Award"
   # image: /images/2024_strengths_back.svg
   items:
     - "/images/kt_partner.svg"

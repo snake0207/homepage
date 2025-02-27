@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import { FetchImage } from "@lib/utils/imageDom";
 
 const Home = ({ frontmatter }) => {
-  const { banner, about, business, solutions, works,  patent  } = frontmatter;
+  const { banner, about, business, solutions, works, patent } = frontmatter;
   const { title } = config.site;
   const [swiperSize, setSwiperSize] = useState({ width: 0, height: 0 });
   const swiperRef = useRef(null);
@@ -94,30 +94,30 @@ const Home = ({ frontmatter }) => {
                   className="btn btn-primary mr-4 mt-16 md:mt-24"
                   href={
                     process.env.NEXT_PUBLIC_DOCPATH
-                      ? `${process.env.NEXT_PUBLIC_DOCPATH}${banner.button.link}`
-                      : `${banner.button.link}`
+                      ? `${process.env.NEXT_PUBLIC_DOCPATH}${banner.button?.link}`
+                      : `${banner.button?.link}`
                   }
-                  rel={banner.button.rel}
+                  rel={banner.button?.rel}
                   target="_blank"
                 >
                   {slidesPerView === 1 ? (
-                    <h5>{banner.button.label}</h5>
+                    <h5 className="text-gray-200">{banner.button?.label}</h5>
                   ) : (
-                    <h4>{banner.button.label}</h4>
+                    <h4 className="text-gray-200">{banner.button?.label}</h4>
                   )}
                 </Link>
               )}
-              {banner.recruit.enable && (
+              {banner.recruit?.enable && (
                 <Link
                   className="btn btn-outline-primary"
                   href={process.env.NEXT_PUBLIC_RECRUITURL}
-                  rel={banner.recruit.rel}
+                  rel={banner.recruit?.rel}
                   target="_blank"
                 >
                   {slidesPerView === 1 ? (
-                    <h5 className="text-primary">{banner.recruit.label}</h5>
+                    <h5 className="text-gray-200">{banner.recruit?.label}</h5>
                   ) : (
-                    <h4 className="text-primary">{banner.recruit.label}</h4>
+                    <h4 className="text-gray-200">{banner.recruit?.label}</h4>
                   )}
                 </Link>
               )}
@@ -171,7 +171,7 @@ const Home = ({ frontmatter }) => {
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-6 sm:grid-cols-1 md:mt-24 md:grid-cols-2 md:gap-8">
+          <div className="mt-16 grid gap-4 sm:grid-cols-1 md:mt-24 md:grid-cols-2 md:gap-8">
             {business?.items.map((item, index) => (
               <div
                 className="m-4 mb-6 grid grid-cols-1 md:grid-cols-1"
@@ -186,8 +186,9 @@ const Home = ({ frontmatter }) => {
                         : `${item.image}`
                     }
                     style={{
-                      width: slidesPerView === 1 ? "50%" : "100%",
+                      width: slidesPerView === 1 ? "70%" : "90%",
                       height: "auto",
+                      border: "3px solid rgb(229,231,235)",
                     }}
                     alt="제공 서비스 설명"
                     width={0}
@@ -210,50 +211,60 @@ const Home = ({ frontmatter }) => {
       <section
         id="solutions"
         className="section"
-        // style={{
-        //   backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
-        //     ? `url(
-        //     ${process.env.NEXT_PUBLIC_IMAGEPATH}${solutions?.background}
-        //   )`
-        //     : `url(${solutions?.background})`,
-        //   backgroundSize: "cover",
-        // }}
+        style={{
+          backgroundImage: process.env.NEXT_PUBLIC_IMAGEPATH
+            ? `url(
+            ${process.env.NEXT_PUBLIC_IMAGEPATH}${solutions?.background}
+          )`
+            : `url(${solutions?.background})`,
+          backgroundSize: "cover",
+        }}
       >
-        <div className="container">
+        <div className="container md:pl-0 md:pr-0">
           <div className="text-center">
             <h2 className="mt-2" style={styleTitle}>
               {markdownify(solutions.title)}
             </h2>
           </div>
 
-          <div className="mt-16 grid grid-cols-1 gap-8 md:mt-24 md:grid-cols-2">
-            {/* Image */}
-            <div className={"service-content mt-5 flex items-center"}>
-              <FetchImage
-                src={
-                  process.env.NEXT_PUBLIC_IMAGEPATH
-                    ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${solutions?.image}`
-                    : `${solutions?.image}`
-                }
-                alt="보유 솔루션 설명"
-                width={700}
-                height={400}
-              />
-            </div>
-
+          <div
+            className="m-4 mt-16 grid grid-cols-1 gap-4 sm:m-24 sm:gap-8 md:mt-24 md:grid-cols-2 lg:grid-cols-3"
+            // style={{ border: "1px solid red" }}
+          >
             {/* Content  */}
-            <div className="service-content">
-              {solutions?.items.map((item, i) => (
-                <div key={`solutions-${i}`} className="mb-4 p-4 md:mb-6">
-                  <p className="mb-2 text-2xl font-bold text-red-400 md:text-4xl">
-                    {`"${item.name}"`}
-                  </p>
-                  <h1 className=" text-2xl text-gray-400 md:text-3xl">
-                    {item.content}
-                  </h1>
+            {solutions?.items.map((item, i) => (
+              <div
+                className="rounded-xl p-4 pb-16 pt-16 shadow"
+                key={`solutions-${i}`}
+                style={{ border: "1px solid #ddd" }}
+              >
+                <div className={"flex items-center justify-center"}>
+                  <FetchImage
+                    src={
+                      process.env.NEXT_PUBLIC_IMAGEPATH
+                        ? `${process.env.NEXT_PUBLIC_IMAGEPATH}${item?.image}`
+                        : `${item?.image}`
+                    }
+                    alt={`${item.content}`}
+                    width={150}
+                    height={150}
+                    className={"rounded-[50%] p-4"}
+                    style={{ border: "1px solid #ccc" }}
+                  />
                 </div>
-              ))}
-            </div>
+                <div className="mt-20 grid grid-cols-1 text-center">
+                  <h1 className="mb-4 text-2xl font-bold text-gray-400">
+                    {`"${item.name}"`}
+                  </h1>
+                  <h2 className="mb-1 text-xl sm:text-3xl md:text-2xl">
+                    {item?.content_1}
+                  </h2>
+                  <h2 className="text-xl sm:text-3xl md:text-2xl">
+                    {item?.content_2}
+                  </h2>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
